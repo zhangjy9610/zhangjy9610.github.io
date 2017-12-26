@@ -1,0 +1,94 @@
+
+<!DOCTYPE html >
+<!--  Website template by freewebsitetemplates.com  -->
+<html>
+    <head>
+        <title> 2017 Spring: Differential Equation II </title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <link href="css/style.css" rel="stylesheet" type="text/css" />
+    </head>
+
+    <body>
+        <div id="background">
+            <div id="page">
+                <div class="header">
+                    <div class="footer">
+                        <div class="body">
+                            <div id="sidebar"> 
+                                <a href="index.html"><img id="logo" src="images/ustc_logo_t.png" with="164" height="164" alt="" title=""/></a>
+
+                                <ul class="navigation">
+                                    <li><a  href="index.html">Home</a></li>
+                                    <li><a href="CV.html" >Curriculum Vitae</a></li>
+                                    <li><a href="education.html">Education and Research </a></li> 
+                                    <li><a href="TA.html">Teaching Assistant</a></li>                                   
+                                    <li><a href="others.html">Miscellaneous</a></li>
+
+                                </ul>
+                                
+                                <div class="connect"> 
+                                    <SCRIPT LANGUAGE = "JavaScript" src="js/lastmodified.js"> </SCRIPT>
+                                </div>
+                            </div>
+                            <div id="content">
+                                <div class="content">
+                                    <h1>001364 Differential Equation II</h1>
+                                    <p>
+                                    <span class="h2boxtag">
+                                       Basic Information:
+                                    </span>
+
+                                    <ul>
+                                        <li>Instructor: <a href="http://math.ustc.edu.cn/new/teachersinfo1.php?id=29"> Prof. Xing Liang </a>
+                                       
+                                        </li>
+<li>Time: 2(3,4,5), 5(1,2).</li>
+<li>Classroom:@3B102, West Campus.</li>
+
+                                        <li>Textbook: 
+<ul><li>Lawrence C. Evans: Partial Differential Equations, 2nd edition, AMS. Chapter 5-7.</li>
+</ul>
+
+                                        </li>
+<li>Grade: TBA</li></ul>
+<span class="h2boxtag">
+                                       Exams:
+                                    </span>
+<li><h3>Mid-term Exam:</h3>
+<ul><li>Time/Location: TBA. </li>
+</ul>
+<li><h3>Final Exam:</h3>
+<ul><li>Time/Location: TBA. </li>
+
+</ul>
+<span class="h2boxtag">
+                                      HW and Recitation Class:
+                                    </span>
+<li><h3>Homework: </h3>
+
+
+
+
+<li><h3>Recitation Class:</h3>
+
+                                    
+                                    
+                               
+                                    <br />
+                                    <br />
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="shadow"> 
+                    <!--·ÃÎÊµØÍ¼´úÂë-->
+                    <script type="text/javascript" src="http://jg.revolvermaps.com/b.js"></script><script type="text/javascript">rmb_ki101('60e1dkbowui','9','99','18',1,'ffffff','010020','aa0000');</script>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
