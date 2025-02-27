@@ -5,9 +5,9 @@ body {
     font-family: Microsoft YaHei; 
     font-size: 14px; 
     line-height: 25px; 
-    color:#00009C; 
+    color:#072463; 
     text-align: justify; 
-    background-image:url('../images/bg-body.gif');  
+    background-image:url('../images/bg-body.jpg');  
 }
 
 
@@ -18,7 +18,7 @@ body {
 }
 
 #page{
-    width:950px;
+    width:1500px;
     margin:0 auto;
     padding: 0 5px;
 }
@@ -36,7 +36,7 @@ body {
 
 #page .header .footer .body{
     background-image:url('../images/bg-page.jpg');  
-    width:950px;
+    width:1500px;
     overflow:hidden; 
 }
 
@@ -53,33 +53,34 @@ body {
 
 /** Start of Sidebar style **/	
 #page .header .footer .body #sidebar{
-    width:211px;
+    width:311px;
     float:left;
 }
 #page .header .footer .body #sidebar img#logo{
     border:0;
-    margin:20px 0 20px 20px;
+    margin:40px 0 40px 40px;
+    text-align:center
 }	
 
 
 /** start style navitagion style**/
 
 #page .header .footer .body #sidebar ul.navigation{
-    margin:0 0  50px 8px;
+    margin:0 0  20px 8px;
     padding:5px 0 0 0;
     list-style-type:none; 
     background-image:url('../images/border-dashed.gif');  
     background-repeat:repeat-x;
     background-position:top;
     position:relative;
-    width:200px;
+    width:400px;
     z-index:9990;
 
 }
 
 
 #page .header .footer .body #sidebar ul.navigation li{
-    width:200px;
+    width:400px;
     height:40px;
 
     position:relative;
@@ -97,7 +98,7 @@ body {
 }  
 
 #page .header .footer .body #sidebar ul.navigation li a{
-    width:214px;
+    width:304px;
     height:40px;
     display:block;
     position:absolute;
@@ -105,14 +106,14 @@ body {
     top:-5px;
     text-align:center;
     padding-right:10px;
-    color:#999999;
+    color:#444444;
     text-decoration:none;
 
 
 }
 
 #page .header .footer .body #sidebar ul.navigation li a:hover{
-    width:214px;
+    width:304px;
     height:40px;
     display:block;
     position:absolute;
@@ -124,7 +125,7 @@ body {
 }
 
 #page .header .footer .body #sidebar ul.navigation li.active a{
-    width:214px;
+    width:304px;
     height:40px;
     display:block;
     position:absolute;
@@ -139,10 +140,10 @@ body {
     background-image:url('../images/bg-social-sites.jpg');  
     background-repeat:no-repeat;
     height:29px;
-    width:186px;
-    margin: 0 auto;
+    width:206px;
+    margin:0px 40px 2px 60px;
     padding: 5px;
-    color: #999999;
+    color: #444444;
     text-align: center;
     font-size: 14px;
   }
@@ -180,24 +181,24 @@ body {
 
 
 #page .header .footer .body #sidebar .footenote{
-    width: 186px;
+    width: 226px;
     margin: 0 auto;
     padding-top:50px;
 }
 
 #page .header .footer .body #sidebar .footenote span{
-    color:#cccccc;
+    color:#FFFFFF;
     display:block;
     font-size:14px;
     text-align:center;
  }
 
  #page .header .footer .body #sidebar .footenote span a{
-     color:#cccccc;
+     color:#FFFFFF;
      text-decoration:none;
  }
  #page .header .footer .body #sidebar .footenote span a:hover{
-     color:#999999;
+     color:#444444;
  }
 
  /** end of Sidebar style **/			
@@ -206,7 +207,7 @@ body {
  /** Start of Content Style **/	
 
  #page .header .footer .body #content{
-     width:739px;
+     width:1100px;
      float:left;
      padding-bottom:50px;
      overflow:hidden;
@@ -217,17 +218,17 @@ body {
 }		
 
 #page .header .footer .body #content .content{
-    width:726px;
+    width:1080px;
     background-image:url('../images/bg-inner-page.jpg');  
     background-repeat:repeat-y;
     float:left;
     padding-top:20px;
-    padding-left:30px;
+    padding-left:0px;
     overflow:hidden;
 }
 
 #page .header .footer .body #content .content a{
-    color:#39f;
+    color:#589BAA;
     text-decoration:none;
 }
 
@@ -244,42 +245,42 @@ ul.u {list-style-type:none;}
 }
 
 #page .header .footer .body #content .content ul li  a{
-    color:#39f;
+    color:#589BAA;
     text-decoration:none;
 }
 
 #page .header .footer .body #content .content ul li  a:hover{
-    color:#cccccc;
+    color:#007FFF;
 }
 
 #page .header .footer .body #content .content ul li  a span{
     display:block;
-    color:#00009C;
+    color:#072463;
     margin-top:20px;
     font-style:normal;
 }
 
 #page .header .footer .body #content .content ul li h2 a{
     font-family: Microsoft YaHei; 
-    color:#00009C;
+    color:#072463;
     text-decoration:none;
     font-weight:bold;
 }
 #page .header .footer .body #content .content ul li p{
     font-family: Microsoft YaHei; 
     font-size:14px;
-    color:#00009C;
+    color:#072463;
 }
 #page .header .footer .body #content .content ul li p a{
 	font-family: Microsoft YaHei, Verdana, Geneva, sans-serif;
 	font-size: 14px;
-	color: #00009C;
+	color: #072463;
 	text-decoration: underline;
 }
 #page .header .footer .body #content .content ul li p a:hover{
     font-family: Microsoft YaHei; 
     font-size:14px;
-    color:#cccccc;
+    color:#007FFF;
 }
 
 /** Style Blog page**/
@@ -305,7 +306,7 @@ ul.u {list-style-type:none;}
     font-family: Microsoft YaHei; 
     font-size:18px;
     font-style:normal;
-    color:#00009C;
+    color:#072463;
     text-decoration:none;
     font-weight:bold;
 }
@@ -314,7 +315,7 @@ ul.u {list-style-type:none;}
     font-family: Microsoft YaHei; 
     font-size:18px;
     font-style:normal;
-    color:#cccccc;
+    color:#FFFFFF;
     text-decoration:none;
     font-weight:bold;
 }
@@ -323,7 +324,7 @@ ul.u {list-style-type:none;}
     font-family: Microsoft YaHei; 
     font-size:14px;
     font-style:normal;
-    color:#00009C;
+    color:#072463;
     text-decoration:none;
     margin-top:20px;
 
@@ -333,7 +334,7 @@ ul.u {list-style-type:none;}
 #page .header .footer .body #content .content ul.article li a:hover{
     font-family: Microsoft YaHei; 
     font-size:14px;
-    color:#cccccc;
+    color:#FFFFFF;
 }
 
 #page .header .footer .body #content .content ul.article li p{
@@ -343,19 +344,19 @@ ul.u {list-style-type:none;}
 #page .header .footer .body #content .content ul.article li p{
     font-family: Microsoft YaHei; 
     font-size:14px;
-    color:#00009C;
+    color:#072463;
     line-height:20px;
 }
 #page .header .footer .body #content .content ul.article li p a{
     font-family: Microsoft YaHei; 
     font-size:14px;
-    color:#00009C;
+    color:#072463;
     text-decoration:underline;
 }
 #page .header .footer .body #content .content ul.article li p a:hover{
     font-family: Microsoft YaHei; 
     font-size:14px;
-    color:#cccccc;
+    color:#FFFFFF;
 }
 
 /** End Style Blog Page**/
@@ -392,10 +393,10 @@ ul.u {list-style-type:none;}
 }
 
 #page .header .footer .body #content .featured .body p a{
-    color:#00009C;
+    color:#072463;
 }
 #page .header .footer .body #content .featured .body p a:hover{
-    color:#cccccc;
+    color:#FFFFFF;
 }
 
 
@@ -422,7 +423,7 @@ ul.u {list-style-type:none;}
   }
 
   #page .header .footer .body #content .featured .header ul li p{
-      color:#999999;
+      color:#444444;
       font-family: Microsoft YaHei; 
       font-size:14px;
       margin-top:0px;
@@ -438,7 +439,7 @@ ul.u {list-style-type:none;}
   }
 
   #page .header .footer .body #content .featured .header ul li.first p{
-      color:#00009C;
+      color:#072463;
       font-family: Microsoft YaHei; 
       font-size:48px;
       margin-top:10px;
@@ -452,17 +453,17 @@ ul.u {list-style-type:none;}
   }
 
   #page .header .footer .body #content .featured .header ul li.last a{
-      color:#999999;
+      color:#444444;
   }
   #page .header .footer .body #content .featured .header ul li.last a:hover{
-      color:#00009C;
+      color:#072463;
   }
 
   #content .content p.right{
       font-family: Microsoft YaHei; 
       font-style: normal;
       text-align:right;
-      color:#00009C;
+      color:#072463;
       margin-right:100px;
 }
 
@@ -475,17 +476,17 @@ ul.u {list-style-type:none;}
     font-weight: normal; 
     font-style: normal; 
     font-size: 90%; 
-    border: 1px solid #999999; 
-    border-right: 2px solid #999999;
-    border-bottom: 2px solid #999999;
+    border: 1px solid #444444; 
+    border-right: 2px solid #444444;
+    border-bottom: 2px solid #444444;
     padding: 1px 2px; 
     margin-right: 3px; 
 }
 
 #content .h2boxtag{
-    border-bottom: 2px solid #999999;
+    border-bottom: 2px solid #444444;
     bottom: 2px; 
-    color:#00009C;
+    color:#072463;
     font-family: Microsoft YaHei; 
     font-size:19px;
     font-style: normal; 
