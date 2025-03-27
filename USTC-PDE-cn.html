@@ -53,6 +53,7 @@
 <li>[3] 姜礼尚、陈亚浙、刘西垣、易法槐. 《数学物理方程讲义》（第三版），高等教育出版社。</li>
 <li>[4] Elias M. Stein, Rami Shakarchi. Fourier Analysis: an Introduction. (Chapter 5, 6) </li>
 <li>[5] Elias M. Stein, Rami Shakarchi. Functional Analysis: Introduction to Further Topics in Analysis. (Chapter 3) </li>
+<li>[6] 陈亚浙、吴兰成.《二阶椭圆型方程与椭圆型方程组》，科学出版社。（第2章）</li>
 </ul>
 </li>
 
@@ -62,36 +63,44 @@
 <li>常见的偏微分方程类型、基本术语和概念、基本问题</li>
 <li>最小作用量原理</li>
 </ul>
-<ul>一、一阶偏微分方程（参考[1]第二章或[2]第三章）
-<li>特征线法</li>
-<li>边值问题的存在性与初值的相容性条件</li>
-<li>Hamilton-Jacobi方程简介</li>
+
+<ul>一、一阶偏微分方程（参考[1]第二章）
+<li>1、特征线法、Burgers方程</li>
+<li>2、边值问题的存在性与初值的相容性条件</li>
 </ul>
-<ul>二、波动方程（参考[2]的2.4节和[3]的2.4节）
+
+<ul>二、R^d中的波动方程和热方程（参考[2]的2.4节、[3]第3.1节、[4]第6章）
 <li>1、R^d中的波方程求解（d=1,3,2）</li>
-<li>2、有限传播速度</li>
-<li>3、可计算的边值问题：分离变量法</li>
-</ul>
-<ul>三、热方程（参考[3]第3章和[1]第9.1节）
-<li>1、欧氏空间热方程的傅立叶变换法</li>
-<li>2、可计算的边值问题：分离变量法</li>
-<li>3、热方程的极大值原理</li>
+<li>2、能量法：波方程的有限传播速度、热方程的衰减性</li>
+<li>3、傅立叶变换求解热方程、波方程、薛定谔方程，波方程的能量均分原理</li>
 </ul>
 
-<ul>四、傅立叶变换方法的应用（[4]第6章和[5]第8章第2、3、6节）
-<li>1、傅立叶变换求解波方程、薛定谔方程，波方程的能量均分原理</li>
-<li>2、*震荡积分的衰减估计</li>
-<li>3、*曲面测度傅立叶变换与色散方程解的关系</li>
+<ul>三、傅立叶变换方法的更多应用（[5]第8章第2、3、6节）
+<li>1、震荡积分的衰减估计</li>
+<li>2、曲面测度的傅立叶变换</li>
 </ul>
 
-<ul>五、位势方程（[2]第2.2节）
-<li>1、一些具体可以计算的例子：分离变量法、径向调和函数</li>
-<li>2、调和函数的性质（光滑性、平均值原理、极大值原理、Harnack不等式）</li>
-<li>3、格林函数法</li>
-<li>4、*(-Δ) 的主特征值变分原理</li>
+<ul>四、一维边值问题的分离变量法（参考[3]第2.4、3.2、4.1节）
+<li>1、热方程和波方程分离变量法的几个实例</li>
+<li>2、求解特殊区域内的调和函数</li>
 </ul>
 
-<ul>六、广义函数（分布）与偏微分方程的基本解（[1]的对应章节或[3]的3.2节）
+<ul>五、极大值原理（参考[2]第2.2、6.4、6.5节、[3]第3.3节）
+<li>1、调和函数的基本性质</li>
+<li>2、椭圆算子的极大值原理与Harnack不等式</li>
+<li>3、(-Δ) 的主特征值变分原理（其特征函数正交性是分离变量法的理论基础）</li>
+<li>4、热方程的极大值原理</li>
+</ul>
+
+<ul>六、位势方程的求解与Schauder估计（参考[2]第2.2节、[6]第2章）
+<li>1、Rn情况的求解、边值问题的格林函数方法</li>
+<li>2、位势方程解的C^{2,α}估计</li>
+<li>3、边值问题解的Schauder估计</li>
+<li>4、*Dirichlet边值问题解的存在性</li>
+</ul>
+
+
+<ul>七、广义函数（分布）与偏微分方程的基本解（[1]的对应章节或[5]的3.2节）
 <li>1、分布的定义、基本运算、收敛性与光滑逼近</li>
 <li>2、几类特殊的分布：缓增分布、支于单点的分布、齐次分布</li>
 <li>3、几类常系数线性偏微分方程的基本解（位势方程、热方程、波动方程）</li>
@@ -100,15 +109,16 @@
 
 </li>
 <li>
-说明：笔者在NUS做博后期间教过这门课，在11-12周的时间内（每周4课时）上完了上述内容除去第一部分第3节和第六部分之外的其它全部内容，且补充了傅立叶级数相关的知识（因为班上部分学生没学过）。笔者当时的教学评价是4.5/5.0（平均分是4.0~4.1），所以教得至少不算烂吧。对应到科大数学学院课程体系下，可将前五部分设置成3学分（60课时）的课程，第6部分设置成1学分（20课时）的进阶课程。
+说明：笔者在NUS做博后期间教过这门课，在11周的时间内（每周4课时）上完了上述内容的前五部分和第六部分的第一小节，而且期间花了一周多的时间补充了傅立叶级数相关的知识（因为班上部分学生没学过）。笔者当时的教学评价是4.5/5.0（平均分是4.0~4.1），所以教得至少不算烂吧。
+对应到科大数学学院课程体系下，可将第1、2、4、5、6部分设置成3学分（60课时）的课程，第3、7部分设置成1学分（20课时）的进阶课程。
 <br>
-上述大纲基本上是结合了UC Berkeley的Sung-Jin Oh教授的MATH 222A课程讲义、本人在NUS做博后期间的MA4221课程讲义、以及科大数院的课程体系而设计，主要参考的教材还有：Evans PDE[2]和姜礼尚、陈亚浙等人的《数学物理方程讲义》[3]. 上述课程大纲单独把广义函数拿出来放在最后一部分，主要是为了“强行凑出”1学分的进阶部分，另一个考量则是引进广义函数之后，可以较为自然地衔接后续课程出现的“弱解理论”。
+上述大纲基本上是结合了UC Berkeley的Sung-Jin Oh教授的MATH 222A课程讲义、本人在NUS做博后期间的MA4221课程讲义、以及科大数院的课程体系而设计。上述课程大纲中，讲授顺序并非按照方程种类设计，而是按照求解方法的不同进行讲授（傅立叶方法、分离变量法、极大值原理）；而选取第3、7部分为“进阶内容”则是出于与后续分析/PDE课程衔接的考量，例如引进广义函数之后可以较为自然地衔接后续课程出现的“弱解理论”，而震荡积分则是调和分析的核心内容。
 </li>
 <li>
 关于一阶偏微分方程：一阶非线性偏微分方程有非常丰富的理论，无论是Hamilton-Jacobi方程还是双曲守恒律方程，这里没有列出来是因为单个学期的课时量已经不再能容纳新增任何一个自成体系的章节。以双曲守恒律方程为例，本科生课也基本只能介绍1维的情况（高维情况现在还有很多未解决的问题），除此之外这部分就必须要引进“弱解”的观念（因为几类重要的解稀疏波、激波、接触间断等等都涉及“间断”），但这在没有学过泛函分析或者广义函数的情况下很难介绍清楚引进弱解的动机。
 </li>
 <li>
-<strong>自学建议：</strong>自学时建议直接按照Sung-Jin Oh教授的讲义顺序来学（也就是在课程开头就介绍基本解的严格定义），分离变量法等涉及具体计算的内容则参考[3]。对偏微分方程感兴趣的同学应尽快过掉上述“古典内容”，打好实分析、泛函分析的基础，尽早开始近现代偏微分方程的学习。
+<strong>自学建议：</strong>自学时建议直接按照Sung-Jin Oh教授的讲义顺序来学（也就是在课程开头就介绍基本解的严格定义），分离变量法等涉及具体计算的内容则参考[3]。<strong>必要时候，应当牺牲一定数学上的严谨性（尤其是涉及单位分解、边界拉平等与PDE本身无关的内容时）以求得对PDE本身性质的深刻理解。</strong>对偏微分方程感兴趣的同学应尽快过掉上述“古典内容”，打好实分析、泛函分析的基础，尽早开始近现代偏微分方程的学习。
 </li>
 </ul>
 
@@ -123,12 +133,14 @@
 <li>主要参考资料：
 <ul>
 <li>[1] Lawrence C. Evans. Partial Differential Equations (2nd edition) GSM 19, AMS. (Chapter 5-9) </li>
-<li>[2] Jonathan Luk. Introduction to Nonlinear Wave Equations, Stanford University. (Section 4-5) </li>
-<li>[3] John Hunter. Notes on PDEs, UC Davis. (Chapter 8)</li>
-<li>[4] Guy Metivier. Small Viscosity and Boundary Layer Methods. (Chapter 2)</li>
-<li>[5] Hajer Bahouri, Jean-Yves Chemin, Raphael Danchin: Fourier Analysis and Nonlinear PDEs. (Chapter 1) </li>
-<li>[6] Benjamin Dodson. Defocusing Nonlinear Schrodinger Equations. (Chapter 1)</li>
-<li>[7] Sung-Jin Oh. Lecture Notes for MATH 222B, <a href="https://pillowmath.github.io/Math%20222B/main.pdf">recorded by Daniel Raban</a>.</li>
+<li>[2] 陈亚浙、吴兰成.《二阶椭圆型方程与椭圆型方程组》，科学出版社。（第4章）</li>
+<li>[3] Jonathan Luk (陸穎康). <a href="https://web.stanford.edu/~jluk/NWnotes.pdf">Introduction to Nonlinear Wave Equations</a>, Stanford University. Chapter 4-5) </li>
+<li>[4] Qian Wang (汪倩). <a href="https://people.maths.ox.ac.uk/wangq1/Lecture_notes/nonlinear_wave_9.pdf">Lectures on Nonlinear Wave Equation</a>, University of Oxford. (Chapter 2-3) </li>
+<li>[5] John Hunter. Notes on PDEs, UC Davis. (Chapter 8)</li>
+<li>[6] Guy Metivier. Small Viscosity and Boundary Layer Methods. (Chapter 2)</li>
+<li>[7] Hajer Bahouri, Jean-Yves Chemin, Raphael Danchin: Fourier Analysis and Nonlinear PDEs. (Chapter 1) </li>
+<li>[8] Benjamin Dodson. Defocusing Nonlinear Schrodinger Equations. (Chapter 1)</li>
+<li>[9] Terence Tao. Nonlinear Dispersive Equations: Local and Global Analysis, AMS.</li>
 </ul>
 
 <li>大纲：
@@ -137,48 +149,45 @@
 <li>2、迹定理、延拓定理</li>
 <li>3、Sobolev嵌入定理：GNS不等式、Poincare不等式、紧嵌入定理、Morrey不等式、Lipschitz连续性</li>
 </ul>
-<ul>二、二阶线性椭圆方程的弱解理论（[1]第6章）
-<li>1、弱解存在性定理：Lax-Milgram定理、Fredholm二择一</li>
-<li>2、对称椭圆算子的特征值理论</li>
-<li>3、椭圆正则性定理（内正则性+整体正则性）</li>
-<li>4、极大值原理（梯度估计）与Harnack不等式（对数梯度估计） </li>
+
+<ul>二、二阶线性椭圆、抛物方程的弱解理论（[1]第6章、第7章第1节、[2]第4章）
+<li>1、弱解存在性定理：Lax-Milgram定理、Fredholm二择一、正则性定理</li>
+<li>2、De Giorgi-Nash-Moser迭代</li>
+<li>3、抛物方程局部适定性：Galerkin逼近法、抛物正则性定理</li>
 </ul>
 
-<ul>三、线性抛物方程（[1]第7章第1、4节）
-<li>1、局部适定性：Galerkin逼近法、抛物正则性定理</li>
-<li>2、抛物极大值原理与Harnack不等式</li>
-<li>2、抛物极大值原理与Harnack不等式</li>
-<li>4、*半群方法</li>
+<ul>三、线性双曲方程
+<li>1、一阶对称双曲组Cauchy问题、（[5]第8章或[6]第2章）</li>
+<li>2、变系数线性波方程的正则性、局部适定性、有限传播速度（[3]第4-5节或[4]第2-3节、[1]第7.2.4节）</li>
+<li>3、拟线性波方程的局部适定性（[3]第6节或[4]第3节）</li>
 </ul>
 
-<ul>四、线性双曲方程
-<li>1、对称双曲组Cauchy问题（[3]第8章或[4]第2章）</li>
-<li>2、对称双曲组边值问题（[3]第8章或[4]第2章）</li>
-<li>4、变系数线性波方程的正则性、局部适定性（[2]第4-5节）</li>
-<li>5、有限传播速度（[1]第7.2.4节）</li>
+<ul>四、Sobolev空间的傅立叶刻画
+<li>1、分数阶Sobolev空间的嵌入定理（[7]第1章）</li>
+<li>2、薛定谔方程的衰减估计与Strichartz估计（[8]第1章）</li>
+<li>3、质量临界薛定谔方程的小初值整体解、Virial identity等（[8]第1章）</li>
+<li>4、Sobolev空间的Littlewood-Paley刻画（[9]附录A）</li>
 </ul>
 
-<ul>五、Sobolev空间的傅立叶刻画
-<li>1、分数阶Sobolev的嵌入定理（[5]第1章）</li>
-<li>2、薛定谔方程的衰减估计与Strichartz估计（[6]第1章）</li>
-<li>3、半线性薛定谔方程的适定性（[6]第1章）</li>
-</ul>
-
-<ul>六、变分法与诺特定理
+<ul>五、变分法与诺特定理
 <li>1、欧拉-拉格朗日方程（[1]第8.1-8.2节）</li>
 <li>2、诺特定理（[1]第8.6节）</li>
 <li>3、山路(Mountain-Pass)引理、半线性椭圆方程解的存在/不存在性（[1]第8.5、9.4节）</li>
 </ul>
 </li>
-<li>
-我在NUS做博后期间教过这门课，去掉公共假期和考试等活动共计11周（每周4课时），讲完了上述大纲的第一、二、三、五部分以及第四部分的第1、4、5节。因此上述大纲完全适用于科大一学期14周，每周5课时的4学分专业课（科大春季学期教学周只有16周）。
-<br>
-严格来说，学习上述内容不需要学过古典偏微分方程，但是古典偏微分方程可以为你提供一些较为简单的例子，而这门课里面相当一部分内容（尤其是弱解正则性、极大值原理、有限传播速度等等）都是古典PDE简单例子的直接推广。
-</li>
+
+<li>关于预备知识：严格来说，学习上述内容不需要学过古典偏微分方程而更多地需要实变（Lp空间）、泛函（弱收敛和紧算子的谱）、傅立叶分析（傅立叶变换的基本性质）的基础，但是古典偏微分方程可以为你提供一些较为简单的例子以便于理解。</li>
 <li>
 关于内容的选取：列出上述大纲的出发点是“尽可能不涉及specialized的内容”，与其说“尽可能覆盖较多方向”，不如说这是一种“妥协”：这是一门课的设计，并不是说做偏微分方程的人一定要学完这些这些内容才能去做后面的事情。
-例如在学完Sobolev空间（及其傅立叶刻画之后）和线性波方程之后就可以直接去学习非线性波方程的基本理论（Christodoulou-Klainerman向量场方法、拟线性波方程小初值长时间解以及“零条件”情况下的整体解、波方程的Strichartz估计或者几何波方程等等），不需要再把椭圆、抛物、变分法等等工具全学一遍之后再去读。例如 <a href="https://people.maths.ox.ac.uk/wangq1/Lecture_notes/nonlinear_wave_9.pdf">牛津大学 汪倩教授的非线性波方程讲义</a>, <a href="https://web.stanford.edu/~jluk/NWnotes.pdf"> 斯坦福大学Jonathan Luk教授的非线性波方程讲义</a>, Serge Alinhac的"Hyperbolic PDEs", "Geometric Analysis of Hyperbolic PDEs"等等都是很好的学习资料，当然你要有本事的话也可以直接读Lars Hörmander. Lectures on Nonlinear Hyperbolic Differential Equations的第6章。
+例如在学完Sobolev空间（及其傅立叶刻画之后）和线性波方程之后就可以直接去学习非线性波方程的基本理论（Christodoulou-Klainerman向量场方法、拟线性波方程小初值长时间解以及“零条件”情况下的整体解、波方程的Strichartz估计或者几何波方程等等），不需要再把椭圆、抛物、变分法等等工具全学一遍之后再去读。
+例如上面提到的汪倩教授和Jonathan Luk教授的非线性波方程讲义, Serge Alinhac的"Hyperbolic PDEs", "Geometric Analysis of Hyperbolic PDEs"等等都是很好的学习资料，当然你要有本事的话也可以直接读Lars Hörmander. Lectures on Nonlinear Hyperbolic Differential Equations的第6章。
 同理，对椭圆方程感兴趣的话也没必要学习上述大纲后半部分中的双曲方程、傅立叶分析方法等等。即使少量涉及，也是等你碰到了的时候再回头补补比较好。
+</li>
+<li>
+关于进度的控制：我在NUS做博后期间教过这门课，去掉公共假期和期中考试等活动共计11周（每周4课时），讲完了上述大纲的前四部分除去De Giorgi-Nash-Moser迭代、一阶对称双曲组适定性的内容。
+<br>
+因此上述大纲完全适用于科大一学期14周，每周5课时的4学分专业课（科大春季学期教学周是16周）。笔者在与一些同行交流后认为<strong>Evans Part II的内容必须压缩在半学期以内完成，一些过于琐碎且与PDE本身没什么关系的证明应当直接跳过</strong>（例如Sobolev函数的光滑到边逼近定理、延拓定理、零迹定理、W^{k,p}(k≥2)的嵌入定理、椭圆算子的全局正则性证明中拉直边界和坐标变换的部分等等），
+且与古典解极大值原理相关的内容应当尽量下放到拆课后的偏微分方程1（例如偏微分方程1的第五部分第2、3节），否则没有足够时间将双曲/色散方程或者一些非线性方程的技巧在这门课上讲清楚。
 </li>
 <li>
 <strong>自学建议：</strong>笔者在此再次强调，<strong>“按需学习”的阶段，切忌在这样的基础课上浪费太多时间，但第一遍学一定要落实每一个细节，去反复思考“为什么XX定理需要方程系数或者区域边界需要XX正则性”、“它在古典偏微分方程里的特例是什么”这样的问题。</strong> 
@@ -186,7 +195,7 @@
 另有一点：私以为分析和PDE的历史发展，从来不是“先有XXX分析理论，再把它用到具体PDE问题上”，而是“先有具体的PDE问题，再发现XXX分析工具能解决这个问题，之后才是单独发展'XXX分析'为一套较为完整的理论，再将其试图寻找更广泛的运用”。而实际做PDE研究的时候，也是根据问题本身去寻找合适的分析工具，如果不够用，那再（视情况而定）想办法绕开/自己开发/改良已有工具。
 </li>
 <li>
-<strong>那为什么还要开这门课呢？</strong>尽管这门课里讲的定理几乎都不能直接应用到现代偏微分方程的研究上，但是在实际研究中或多或少地出现证明这些定理的思想方法/定理本身结论的“类似版本”；就好像这门课里面的定理也可以理解成数学分析里面某些简单事实（比如p=2的迹定理本质上就是反过来用Gauss-Green公式、零边值的Poincare不等式本质上是微积分基本定理等等）的推广。所谓“万变不离其宗”正是如此，Evans PDE教材问世二十余年来经久不衰的原因也正是在此。
+<strong>那为什么还要开这门课呢？</strong>尽管这门课里讲的定理几乎都不能直接应用到现代偏微分方程的研究上，但是在实际研究中或多或少地出现证明这些定理的思想方法/定理本身结论的“类似版本”；就好像这门课里面的定理也可以理解成数学分析里面某些简单事实（比如p=2的迹定理本质上就是反过来用Gauss-Green公式、零边值的Poincare不等式本质上是微积分基本定理等等）的推广。所谓“万变不离其宗”正是如此。
 </li>
 </ul>
    
