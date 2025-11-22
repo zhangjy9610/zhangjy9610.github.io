@@ -1,0 +1,379 @@
+\documentclass[UTF8,fontset=windows,12pt]{ctexart}
+%\setcounter{tocdepth}{1}
+%\setcounter{secnumdepth}{4}
+%\usepackage{ctex} %若要输入中文请取消注释或者把article改成ctexart
+% This first part of the file is called the PREAMBLE. It includes
+% customizations and command definitions. The preamble is everything
+% between \documentclass and \begin{document}.
+%\usepackage[OT1]{fontenc}
+%\usepackage{fontspec}
+%\setmainfont{Times New Roman}
+%\setCJKmainfont{Microsoft YaHei}
+\usepackage[left=1.91cm,right=1.91cm,top=2.54cm,bottom=2.54cm]{geometry}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[upint,lcgreekalpha]{stix}
+\usepackage[type1]{garamondlibre}
+%\usepackage{esint}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usepackage{extarrows}
+\usepackage[only,llbracket,rrbracket]{stmaryrd}
+\usepackage{titlesec}
+\usepackage{bm}
+\usepackage{graphicx}
+\usepackage{appendix}
+\usepackage{tikz-cd}
+\usepackage{tikz-3dplot}
+\usetikzlibrary{arrows.meta, decorations.pathreplacing, calc, patterns}
+\usepackage{float}
+\usepackage{mathtools}
+\usepackage{amsthm}
+\usepackage{verbatim}              % better theorem environments
+\usepackage{setspace}
+\usepackage{enumitem}
+\setenumerate[1]{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=5pt}
+\setitemize[1]{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=5pt}
+\setdescription{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=5pt}
+\usepackage{xcolor}
+\usepackage[colorlinks,linkcolor=black,anchorcolor=black,citecolor=black]{hyperref}
+%\usepackage{apacite}
+\usepackage[numbers]{natbib}
+%\usepackage{showkeys}
+\usepackage{cases}
+\usepackage{fancyhdr}
+\usepackage[scaled=0.92]{helvet}	% set Helvetica as the sans-serif font
+%\usepackage{upgreek}
+%\renewcommand{\rmdefault}{ptm}		% set Times as the default text font
+%\usepackage{newtxtext}
+\bibliographystyle{plain}
+% If AMS-LaTeX is used, it can be loaded before or after mtpro2		
+% The following loads metro and defines some common MTPro options [2, 4]
+%\usepackage[lite,subscriptcorrection,nofontinfo]{mtpro2}
+%\pdfmapfile{+mtpro2.map}
+
+%\usepackage{txfonts}
+
+% various theorems, numbered by section
+
+\makeatletter
+\renewenvironment{proof}[1][\proofname]{\par
+  \pushQED{\qed}%
+  \normalfont \topsep6\p@\@plus6\p@\relax
+  \trivlist
+  \item[\hskip\labelsep
+        \bfseries % 关键修改：斜体改为加粗
+        #1\@addpunct{.}]\ignorespaces
+}{%
+  \popQED\endtrivlist\@endpefalse
+}
+\makeatother
+\newtheoremstyle{kaiti-theorem}   % 样式名称
+  {3pt}                           % 上方间距
+  {3pt}                           % 下方间距
+  {\kaishu\upshape}               % 正文字体：中文楷体 + 英文直立
+  {}                              % 缩进量
+  {\bfseries\upshape}      % 头部字体（定理名）：中文楷体粗体 + 英文直立粗体
+  {.}                             % 定理名后标点
+  {0.5em}                         % 定理名后间距
+  {}                              % 头部说明（留空）
+
+% 应用自定义样式
+\theoremstyle{kaiti-theorem}
+\newtheorem{thm}{定理}[section]
+\newtheorem{nota}[thm]{记号}
+\newtheorem{question}{问题}
+\newtheorem*{questionn}{思考}
+\newtheorem{exe}{习题}[section]
+\newtheorem{assump}[thm]{假设}
+\newtheorem*{thmm}{定理}
+\newtheorem{defn}{定义}[section]
+\newtheorem{lem}[thm]{引理}
+\newtheorem*{lemm}{引理}
+\newtheorem{prop}[thm]{命题}
+\newtheorem*{propp}{命题}
+\newtheorem*{claim}{断言}
+\newtheorem{cor}[thm]{推论}
+\newtheorem{conj}[thm]{猜想}
+\newtheorem{rmk}{注记}[section]
+\newtheorem{ex}{例}[section]
+\newtheorem{pf}{证明}
+\newtheorem{problem}{作业题}
+\numberwithin{equation}{section}
+
+
+
+
+
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator*{\esssup}{ess\,sup}
+\renewcommand{\Re}{\textbf{Re}\,}  
+\renewcommand{\Im}{\textbf{Im}\,}  
+\newcommand{\R}{\mathbb{R}}  
+\newcommand{\FH}{\mathbb{H}}  
+\newcommand{\C}{\mathbb{C}}  
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\X}{\mathbb{X}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\T}{\mathbb{T}}
+\newcommand{\TT}{\mathcal{T}}
+\newcommand{\TP}{\overline{\partial}{}}
+\newcommand{\TJ}{\langle\TP\rangle}
+\newcommand{\TL}{\overline{\Delta}{}}
+\newcommand{\curl}{\text{curl }}
+\newcommand{\dive}{\text{div }}
+\newcommand{\bd}[1]{\mathbf{#1}}  % for bolding symbols
+\newcommand{\bds}[1]{\boldsymbol{#1}}  % for bolding symbols
+\newcommand{\RR}{\mathcal{R}}      % for Real numbers
+\newcommand{\sh}{\mathcal{S}}  
+\newcommand{\sph}{\mathbb{S}}  
+\newcommand{\Om}{\Omega}
+\newcommand{\OmT}{{\Omega_T}}
+\newcommand{\ut}{{U_T}}
+\newcommand{\vp}{\varphi}
+\newcommand{\Th}{\Theta}
+\newcommand{\Lam}{\Lambda}
+\newcommand{\Omb}{{\overline{\Omega}}}
+\newcommand{\OmbT}{{\overline{\Omega_T}}}
+\newcommand{\ub}{{\overline{U}}}
+\newcommand{\ubt}{{\overline{U_T}}}
+\newcommand{\q}{\quad}
+\newcommand{\p}{\partial}
+\newcommand{\pb}{\boldsymbol{\partial}}
+\newcommand{\lap}{\Delta}
+\newcommand{\dd}{\mathfrak{D}}
+\newcommand{\DD}{\mathcal{D}}
+\newcommand{\den}{{\bar\rho}_{0}}
+\newcommand{\Dt}{{\p}_{t}+v^{k}{\p}_{k}}
+\newcommand{\col}[1]{\left[\begin{matrix} #1 \end{matrix} \right]}
+\newcommand{\noi}{\noindent}
+\newcommand{\nab}{\nabla}
+\newcommand{\cnab}{\overline{\nab}}
+\newcommand{\cp}{\overline{\partial}{}}
+\newcommand{\dx}{\,\mathrm{d}x}
+\newcommand{\dxx}{\,\mathrm{d}\bds{x}}
+\newcommand{\xxi}{\boldsymbol{\xi}}
+\newcommand{\eeta}{\boldsymbol{\eta}}
+\newcommand{\dxxi}{\,\mathrm{d}\boldsymbol{\xi}}
+\newcommand{\deeta}{\,\mathrm{d}\boldsymbol{\eta}}
+\newcommand{\dxi}{\,\mathrm{d}\xi}
+\newcommand{\deta}{\,\mathrm{d}\eta}
+\newcommand{\dy}{\,\mathrm{d}y}
+\newcommand{\dyy}{\,\mathrm{d}\bds{y}}
+\newcommand{\dz}{\,\mathrm{d}z}
+\newcommand{\dzz}{\,\mathrm{d}\bds{z}}
+\newcommand{\dph}{\,\mathrm{d}\varphi}
+\newcommand{\dt}{\,\mathrm{d}t}
+\newcommand{\dr}{\,\mathrm{d}r}
+\newcommand{\dtt}{\,\mathrm{d}\tau}
+\newcommand{\dS}{\,\mathrm{d}S}
+\newcommand{\dss}{\,\mathrm{d}\sigma}
+\newcommand{\dmu}{\,\mathrm{d}\mu}
+\newcommand{\dnu}{\,\mathrm{d}\nu}
+\newcommand{\dV}{\,\mathrm{d}V}
+\newcommand{\ds}{\,\mathrm{d}s}
+\newcommand{\drr}{\,\mathrm{d}\rho}
+\newcommand{\dist}{\text{dist }}
+\newcommand{\vol}{\text{vol}\,}
+\newcommand{\volo}{\text{vol}(\Omega)}
+\newcommand{\spt}{\text{Spt}\,}
+\newcommand{\Tr}{\text{Tr}\,}
+\newcommand{\lee}{\langle}
+\newcommand{\ree}{\rangle}
+\newcommand{\xee}{\langle\xi\rangle}
+\newcommand{\xxee}{\langle\boldsymbol{\xi}\rangle}
+\newcommand{\xeta}{\langle\eta\rangle}
+\newcommand{\xeeta}{\langle\boldsymbol{\eta}\rangle}
+\newcommand{\kk}{\kappa}
+\newcommand{\lam}{\lambda}
+\newcommand{\io}{\int_{\Omega}}
+\newcommand{\iu}{\int_{U}}
+\newcommand{\is}{\int_{\Sigma}}
+\newcommand{\ipo}{\int_{\partial\Omega}}
+\newcommand{\ipu}{\int_{\partial U}}
+\newcommand{\ig}{\int_{\Gamma}}
+\newcommand{\ir}{\int_{\R}}
+\newcommand{\ird}{\int_{\R^d}}
+\newcommand{\irn}{\int_{\R^n}}
+\newcommand{\fpi}{\frac{1}{(2\pi)^{\frac{d}{2}}}}
+\newcommand{\ddt}{\frac{\mathrm{d}}{\mathrm{d}t}}
+\newcommand{\ddx}{\frac{\mathrm{d}}{\mathrm{d}x}}
+\newcommand{\eps}{\varepsilon}
+\providecommand{\jump}[1]{\left\llbracket #1 \right\rrbracket }
+\providecommand{\len}[1]{\lee #1 \ree }
+\providecommand{\ino}[1]{\left\| #1 \right\| }
+\providecommand{\bno}[1]{\left| #1 \right| }
+\newcommand{\red}{\textcolor{red}}
+\newcommand{\green}{\textcolor{green}}
+\newcommand{\blue}{\textcolor{blue}}
+\newcommand{\nnr}{{[n+1]}}
+\newcommand{\nnn}{{[n]}}
+\newcommand{\nnl}{{[n-1]}}
+\newcommand{\nnll}{{[n-2]}}	
+\newcommand{\mmr}{{[m+1]}}
+\newcommand{\mmm}{{[m]}}
+\newcommand{\mml}{{[m-1]}}
+\newcommand{\mmll}{{[m-2]}}
+
+%---------------Special variables--------------
+\newcommand{\CC}{\mathfrak{C}}  
+\newcommand{\NN}{\mathbf{N}}
+\newcommand{\LH}{\mathcal{L}}
+\newcommand{\HH}{\mathcal{H}}  
+\newcommand{\EE}{\mathcal{E}}  
+\newcommand{\FT}{\mathcal{F}}  
+\newcommand{\fT}{\mathbf{T}}  
+\newcommand{\FA}{\mathbf{A}}  
+\newcommand{\MH}{\mathcal{M}}
+\newcommand{\NH}{\mathcal{N}}
+\newcommand{\PH}{\mathcal{P}}
+\newcommand{\VH}{\mathcal{V}}
+\newcommand{\XX}{\mathfrak{X}}
+\newcommand{\xx}{{\bds{x}}}
+\newcommand{\bx}{\mathbf{x}}
+\newcommand{\by}{\mathbf{y}}
+\newcommand{\bp}{\mathbf{p}}
+\newcommand{\bq}{\mathbf{q}}
+\newcommand{\pp}{{\bds{p}}}
+\newcommand{\qq}{{\bds{q}}}
+\newcommand{\uu}{\mathbf{u}}
+\newcommand{\ww}{\mathbf{w}}
+\newcommand{\vv}{\mathbf{v}}
+\newcommand{\yy}{{\bds{y}}}
+\newcommand{\zz}{{\bds{z}}}
+\newcommand{\zo}{\mathbf{0}}
+\newcommand{\ee}{\mathbf{e}}
+\newcommand{\fa}{\mathbf{a}}
+\newcommand{\fb}{\mathbf{b}}
+\newcommand{\fc}{\mathbf{c}}
+\newcommand{\ff}{\bds{f}}
+\newcommand{\fr}{\mathbf{r}}
+\newcommand{\fh}{\mathbf{h}}
+\newcommand{\fm}{\mathbf{m}}
+\newcommand{\fg}{\mathbf{g}}
+\newcommand{\FF}{\mathbf{F}}
+\newcommand{\GG}{\mathbf{G}}
+\newcommand{\BB}{\mathbf{B}}
+
+
+
+\begin{document}
+\title{\LARGE{\bf  2025年秋季学期偏微分方程作业二}}
+\date{截止时间：2025年12月8日下课前}
+
+\maketitle
+
+\textbf{作业题1--6是必做题，作业题7--8选做。所有作业中的选做题、以及讲义上没布置的“问题”在本课程中都不作要求。}
+
+\begin{problem}[习题2.4.2]
+本题考虑半平面内的调和函数求解。
+\begin{itemize}
+\item [(1)] 给定$y>0$, 计算$F_y(\xi)=e^{-|\xi|y}$关于频率变量$\xi\in\R$的傅立叶逆变换。
+\item [(2)] 计算如下边值问题\underline{有界解}的显式表达式
+\[
+\begin{cases}
+u_{xx}+u_{yy}=0&~~~x\in\R,~y>0,\\
+u(x,0)=\varphi(x)&~~~x\in\R,
+\end{cases}
+\]其中$\varphi\in\mathcal{S}(\R)$是给定的。
+\item [(3)] 证明：对任意$y>0$有$\int_\R|u(x,y)|\dx\leqslant \int_\R|\varphi(x)|\dx$.
+\end{itemize}
+\end{problem}
+
+\begin{problem}[习题2.4.3, Cole-Hopf变换]
+设$a>0,b\in\R$是给定的常数，求解如下拟线性热方程。
+\[
+\begin{cases}
+\p_t u-a^2\lap u+b|\nab u|^2=0&~~t>0,~\xx\in\R^d\\
+u(0,\xx)=\varphi(\xx)&~~t=0,~\xx\in\R^d.
+\end{cases}
+\] 
+
+提示：考虑$v=e^{-\frac{bu}{a^2}}$满足的方程。
+\end{problem}
+
+
+
+\begin{problem}[习题2.4.4]
+求解如下粘性Burgers方程
+\[
+\begin{cases}
+u_t-a^2u_{xx}+uu_x=0&~~t>0,~x\in\R\\
+u(0,x)=\varphi(x)&~~t=0,~x\in\R.
+\end{cases}
+\]这里$a\in\R$是给定的常数。（提示：考虑$v(t,x)=\int_{-\infty}^x u(t,y)\dy$满足的方程。)
+\end{problem}
+
+\begin{problem}[习题2.4.8]
+考虑齐次热传导方程的初值问题
+\[
+\p_t u-k\lap u=0\q\text{ in }\R_+\times\R^d,\q\q u(0,\xx)=\vp(\xx)\q(\xx\in\R^d).
+\]设初值$\vp\in\sh(\R^d)$, 由泊松公式给出的解为$u(t,\xx)$. 
+\begin{itemize}
+\item [(1)] 证明：存在常数$C>0$, 使得$|u(t,\xx)-\vp(\xx)|\leqslant C\sqrt{kt}$对任意$t>0,\xx\in\R^d$成立。
+\item [(2)] 证明：存在常数$C>0$, 使得$\sup\limits_{\xx\in\R^d}|u(t,\xx)|\leqslant Ct^{-\frac{d}{4}}\|\vp\|_{L^2(\R^d)}$对任意$t>0$成立。
+\end{itemize}
+
+提示：(1) 注意$\ird K(t,\yy)\dyy=1$, 将$\vp(\xx)$写作$\ird K(t,\yy)\vp(\xx)\dyy$. (2) 将$u$写成$(\hat{u})^\vee$然后用 傅立叶逆变换的定义得到$|u(t,\xx)|\leqslant \ird |\hat{u}(t,\xxi)|\dxxi$, 代入$\hat{u}(t,\xxi)$的表达式后用Cauchy-Schwarz不等式。
+\end{problem}
+
+
+\begin{problem}[问题C.1.2]
+给定点$\xx_0,\xxi_0\in \R^d$ 以及函数 $f\in\mathcal{S}(\R^d)$, 证明如下海森堡不确定性原理：
+\begin{equation}
+\left(\ird |(\xx-\xx_0)f(\xx)|^2\dxx\right)\left(\ird |(\xxi-\xxi_0)\hat{f}(\xxi)|^2\dxxi\right)\geqslant \frac{d^2}{4} \left(\ird |f(\xx)|^2\dxx\right)^2.
+\end{equation} 这个不等式表明动量和位置不可能在给定的动量$\xxi_0$和给定的位置$\xi_0$附近被同时确定。
+
+提示：只需证明$\xxi_0=\xx_0=\bd{0}$的情况即可，否则考虑$g(\xx)=f(\xx+\xx_0)e^{-i\xx\cdot\xxi_0}$并利用命题C.1.3(2)约化到这一特殊情况。利用Plancherel恒等式可得 $|\xxi\hat{f}(\xxi)|^2=|\widehat{\nab f}(\xxi)|^2$，之后再用Plancherel恒等式和 Cauchy-Schwarz不等式证明左边$\geqslant (\ird |(\xx\cdot\nab f)f|\dxx)^2$, 最后用$(\nab f)f=\frac12 \nab(f^2)$, 然后分部积分一次。
+\end{problem}
+
+\begin{problem}[问题2.4.2]
+设$\Om\subset\R^d$是有界区域且边界光滑，$u(t,\xx)\in C_1^2((0,\infty)\times \Om)\cap C([0,\infty)\times\overline{\Om})$ 是如下方程的解
+\begin{equation*}
+\begin{cases}
+\p_t u-\lap u=0&~~t>0,~\xx\in \Om\\
+u(0,\xx)=u_0(\xx)&~~\xx\in\overline{\Om}\\
+u=0&~~t\geqslant 0,~\xx\in\p \Om,
+\end{cases}
+\end{equation*} 其中 $u_0\in C^2(\overline{\Om})$给定。 证明：存在常数$a>0$（仅和区域本身有关）使得
+$$\io (u(t,\xx))^2\dxx\leqslant e^{-at}\io (u_0(\xx))^2\dxx.$$
+
+提示：对有界区域$\Om$, 若$f|_{\p\Om}=0$, 则必存在常数$C>0$使得$\io f^2\dxx\leqslant C\io |\nab f|^2\dxx$. 思考如何利用类似于“微积分基本定理”的想法去证明这个事实。
+\end{problem}
+
+
+
+\begin{problem}[习题2.5.1，选做]
+考虑$\R^d$中的Klein-Gordon方程的初值问题
+\begin{equation*}
+\begin{cases}
+\p_t^2u-\lap u+m^2 u=0~~~&t>0,~\xx\in\R^d\\
+u(0,\xx)=\varphi(\xx),~\p_t u(0,\xx)=\psi(\xx)~~~&\xx\in\R^d,
+\end{cases}
+\end{equation*}其中 $\varphi,\psi\in\mathcal{S}(\R^d)$.
+\begin{itemize}
+\item [(1)] 定义能量 $E(t)=\frac12\int_{\R^d}(\p_t u)^2+|\nab u|^2+m^2 u^2\dxx.$ 证明：$E(t)$是守恒量。
+\item [(2)] 用$\hat{\varphi}$和$\hat{\psi}$写出解的傅立叶变换$\hat{u}(\xxi)$的表达式。
+\item [(3)] 证明：$\lim\limits_{t\to+\infty}\int_{\R^d}|\nab u|^2+m^2u^2\dxx=E(0)$，进而该方程也有能量渐近均分原理$$\lim\limits_{t\to+\infty}\frac12\int_{\R^d}|\nab u|^2+m^2u^2\dxx=\lim\limits_{t\to+\infty}\frac12\int_{\R^d}(\p_t u)^2\dxx.$$
+\end{itemize}
+
+提示：本题基本可如法炮制波动方程的证明，但请思考如何正确使用Riemann-Lebesgue引理。
+\end{problem}
+
+
+\begin{problem}[问题C.1.7，选做，{$L^\infty$}空间的Sobolev嵌入定理]
+对$s\in\R,~f\in \sh(\R^d)$, 我们定义范数$\|f\|_{s}:=\|\xxee^s\hat{f}(\xxi)\|_{L^2(\R^d)}$, 其中$\xxee:=\sqrt{1+|\xxi|^2}$. 今假设$s>\frac{d}{2}$, 证明：
+\begin{itemize}
+\item [(1)] 存在常数$C>0$使得对任意$f\in \sh(\R^d)$成立$\max\limits_{\R^d}|f|\leqslant C\|f\|_{s}$.
+\item [(2)] 存在常数$C>0$使得对任意$f,g\in \sh(\R^d)$成立$\|fg\|_{s}\leqslant C\|f\|_{s}\|g\|_{s}$.
+\end{itemize}
+
+提示：(1)将$f$写成$f=(\hat{f})^\vee$并用傅立叶逆变换的定义写成积分，然后乘以$\xxee^s$和$\xxee^{-s}$, 然后利用$s>\frac{d}{2}$得出$\xxee^{-s}\in L^2(\R^d)$, 用Cauchy-Schwarz不等式即得。(2) 注意到$\widehat{fg}=(2\pi)^{-\frac{d}{2}}(\hat{f}*\hat{g})$, 把卷积写成积分式并利用$\xxee^s\leqslant C(\langle\xxi-\eeta\rangle^s+\xeeta^s)$即可。
+\end{problem}
+
+
+\end{document}
