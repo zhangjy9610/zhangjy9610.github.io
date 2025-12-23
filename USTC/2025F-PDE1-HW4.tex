@@ -282,7 +282,7 @@ u(t,\xx)=g(t,\xx), \quad \quad& t\geq 0, \xx\in\p\Omega,
 其中$\varphi, g$是给定的有界光滑函数。
 \begin{itemize}
 \item [(1)]  设$f\in C^1$, \textbf{叙述并证明}微分算子$\mathcal{L}u:=\p_t u-\lap u +f(u)$的比较原理。 
-\item [(2)]  如果只假设$f$连续，证明上述方程解的唯一性。
+\item [(2)]  如果只假设$f$连续，证明上述方程解的唯一性。（提示：可以用能量法。）
 \end{itemize}
 \end{problem}
 
@@ -301,15 +301,15 @@ u(t,\xx)=g(t,\xx), \quad \quad& t\geq 0, \xx\in\p\Omega,
 \begin{problem}[习题4.2.3，下调和函数的弱极值原理]
 设$\Om\subset\R^d$是有界开集（未必是区域）。函数$u\in C^2(\Om)\cap C(\Omb)$是$\Om$中的\textbf{下调和函数}, 即$-\lap u\leq 0$在$\Om$内恒成立。
 \begin{itemize}
-\item [(1)] 证明：对任意球$B(\xx,r)\Subset \Om$，成立$u(\xx)\leq \fint_{B(\xx,r)}v(\yy)\dyy.$
+\item [(1)] 证明：对任意球$B(\xx,r)\Subset \Om$，成立$u(\xx)\leq \fint_{B(\xx,r)}u(\yy)\dyy.$
 \item [(2)] 证明：$\max\limits_{\overline{\Omega}} u=\max\limits_{\p\Omega}u$. 
 \item [(3)] 证明：若$v\in C^3(\Om)\cap C^1(\Omb)$是$\Om$内的调和函数，则$|\nab v|$在$\p\Om$上达到最大值。
 \end{itemize}
 
-提示：(1) 先证明$-\lap u<0$的情况，对一般情况考虑扰动$u_\eps(\xx)=u(\xx)+\eps|\xx|^2$. (2) 计算$\lap(|\nab v|^2)$.
+提示：(1)模仿调和函数平均值原理的证明。(2) 先证明$-\lap u<0$的情况，对一般情况考虑扰动$u_\eps(\xx)=u(\xx)+\eps|\xx|^2$. (3) 计算$\lap(|\nab v|^2)$并证明它非负。
 \end{problem}
 
-\begin{problem}[习题4.2.5]
+\begin{problem}[习题4.2.5，选做]
 设$\Om:=B(\mathbf{0},1)\subset \R^d$, $u\in C^3(\Om)\cap C^1(\Omb)$满足
 \[
 \lap u-2u=1~~\text{ in }\Om,~~u|_{\p\Om}=g(\xx).
@@ -319,7 +319,9 @@ u(t,\xx)=g(t,\xx), \quad \quad& t\geq 0, \xx\in\p\Omega,
 \end{problem}
 
 \begin{problem}[习题4.2.6]
-设$u\in C^2(\Om)\cap C(\Omb)$是开集$\Om$内的\textbf{非负}调和函数, 球$B(\xx_0,R)\Subset \Om$.证明：对任意$1\leq i\leq d$有$|\p_{x_i} u(\xx_0)|\leq \dfrac{d}{R}\max\limits_{\overline{B(\xx_0,R)}}u$.
+设$u\in C^3(\Om)\cap C(\Omb)$是开集$\Om$内的\textbf{非负}调和函数, 球$B(\xx_0,R)\Subset \Om$.证明：对任意$1\leq i\leq d$有$|\p_{x_i} u(\xx_0)|\leq \dfrac{d}{R}u(\xx_0)$.
+
+提示：$u\geqslant 0$表明$u=|u|$，思考在模仿命题4.2.9的证明过程中如何利用这个事实得到我们想要的结论。
 \end{problem}
 
 \begin{problem}[习题4.2.8]
@@ -347,6 +349,8 @@ u(t,\xx)=g(t,\xx), \quad \quad& t\geq 0, \xx\in\p\Omega,
 \item [(2)] 当 $d\geq 3$ 时, 对任意$\yy\neq \xx,~\yy\in\Om$有$0<G(\xx,\yy)<\Phi(\xx-\yy)$成立;
 \item [(3)] 当 $d=2$ 时, 对任意$\yy\neq \xx,~\yy\in\Om$有$0<G(\xx,\yy)<-\frac{1}{2\pi}\ln\frac{|\xx-\yy|}{D}$成立.
 \end{itemize}
+
+提示：(1)边值为1且在有界区域$\Om$中调和的函数只能是常值函数1. (2)-(3)思考怎么用极大值原理，本题(2)是以前的考试原题。
 \end{problem}
 
 \begin{problem}[习题5.2.3，球上的Harnack不等式]
