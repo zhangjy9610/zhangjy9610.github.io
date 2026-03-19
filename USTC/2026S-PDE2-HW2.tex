@@ -297,7 +297,7 @@
 %\end{problem}
 
 \begin{problem}[问题2.2.1]
-考虑方程$\p_j(a^{ij}\p_i u)=f$ in $U$, $u=0$ on $\p U$，其中$f\in L^2(U)$, 诸$a^{ij}(\xx)$皆为$L^\infty(U)$且满足一致椭圆条件。令 $I[w]:=\iu \frac12 a^{ij}\p_i w\p_j w - fw \dxx.$
+考虑方程$-\p_j(a^{ij}\p_i u)=f$ in $U$, $u=0$ on $\p U$，其中$f\in L^2(U)$, 诸$a^{ij}(\xx)$皆为$L^\infty(U)$函数且满足一致椭圆条件。令 $I[w]:=\iu \frac12 a^{ij}\p_i w\p_j w - fw \dxx.$
 \begin{itemize}
 \item [(1)] 设 $\{u_n\} \subset H_0^1(U)$ 在 $H_0^1(U)$ 中弱收敛到 $u$，证明 $\liminf\limits_{n\to\infty} I[u_n] \geqslant I[u]$. 
 \item [(2)] 证明：存在常数 $\alpha>0, \beta \in \R$ 使得 $I[w] \geqslant \alpha \|w\|_{H^1}^2 - \beta$ 对任意的 $w\in H_0^1(U)$ 都成立。
@@ -309,7 +309,7 @@
 
 
 \begin{problem}[习题2.3.1]
-令$\Sigma$是$L$的全体特征值构成的集合。给定实数 $\lam\notin \Sigma$ 和函数 $f\in L^2(U)$，设 $u\in H_0^1(U)$ 为方程 $Lu=\lam u+f$ in $U$, $u=0$ on $\p U$ 的弱解。证明：存在常数 $C>0$ 使得 $\|u\|_{L^2(U)}\leqslant C\|f\|_{L^2(U)}$.（提示：反证法，本题在Evans书上是以定理形式呈现。）
+令$\Sigma$是散度型椭圆算子$L$的全体特征值构成的集合。给定实数 $\lam\notin \Sigma$ 和函数 $f\in L^2(U)$，设 $u\in H_0^1(U)$ 为方程 $Lu=\lam u+f$ in $U$, $u=0$ on $\p U$ 的弱解。证明：存在常数 $C>0$ 使得 $\|u\|_{L^2(U)}\leqslant C\|f\|_{L^2(U)}$.（提示：反证法，本题在Evans书上是以定理形式呈现。）
 \end{problem}
 
 %
@@ -334,7 +334,7 @@
 \end{problem}
 
 \begin{problem}[习题2.6.2]
-设$u$是方程$-a^{ij}\p_i\p_j u=f\text{ in }U,~ u|_{\p \Om}=0$的光滑解，其中$f$有界。固定$\xx^0\in\p U$，我们称$C^2$函数$w$是$\xx^0$处的\textbf{闸函数 (barrier function)}是指$w$满足如下条件：
+设$u$是方程$Lu:=-a^{ij}\p_i\p_j u=f\text{ in }U,~ u|_{\p \Om}=0$的光滑解，其中$f$有界。固定$\xx^0\in\p U$，我们称$C^2$函数$w$是$\xx^0$处的\textbf{闸函数 (barrier function)}是指$w$满足如下条件：
 \[
 Lw\geqslant 1\text{ in }U,~~w(\xx^0)=0,~~w\geqslant 0\text{ on }\p U.
 \]证明：若$w$是$\xx^0$处的一个闸函数，则存在常数$C>0$使得$|\nab u(\xx^0)|\leqslant C|\frac{\p w}{\p N}(\xx^0)|.$
@@ -343,5 +343,7 @@ Lw\geqslant 1\text{ in }U,~~w(\xx^0)=0,~~w\geqslant 0\text{ on }\p U.
 
 \begin{problem}[问题2.6.2]
 设$U\subset\R^d$是边界光滑的有界区域，$\lam_1>0$是$(-\lap)$算子(带Dirichlet边值)的主特征值，$w_1\in C^\infty(\ub)$是对应$\lam_1$的特征函数。证明：任给$g\in C^1(\ub)$并假设$g|_{\p U}=0$，必存在常数$A, B$，使得$A w_1(\xx)\leqslant g(\xx) \leqslant B w_1(\xx)$对任意$\xx\in\ub$成立。
+
+提示：思考如何用Hopf引理。
 \end{problem}
 \end{document}
