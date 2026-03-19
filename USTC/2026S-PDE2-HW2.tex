@@ -1,0 +1,347 @@
+\documentclass[UTF8,fontset=windows,12pt]{ctexart}
+%\setcounter{tocdepth}{1}
+%\setcounter{secnumdepth}{4}
+%\usepackage{ctex} %若要输入中文请取消注释或者把article改成ctexart
+% This first part of the file is called the PREAMBLE. It includes
+% customizations and command definitions. The preamble is everything
+% between \documentclass and \begin{document}.
+%\usepackage[OT1]{fontenc}
+%\usepackage{fontspec}
+%\setmainfont{Times New Roman}
+%\setCJKmainfont{Microsoft YaHei}
+\usepackage[left=1.91cm,right=1.91cm,top=2.54cm,bottom=2.54cm]{geometry}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[upint,lcgreekalpha]{stix}
+\usepackage[type1]{garamondlibre}
+%\usepackage{esint}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usepackage{extarrows}
+\usepackage[only,llbracket,rrbracket]{stmaryrd}
+\usepackage{titlesec}
+\usepackage{bm}
+\usepackage{graphicx}
+\usepackage{appendix}
+\usepackage{tikz-cd}
+\usepackage{tikz-3dplot}
+\usetikzlibrary{arrows.meta, decorations.pathreplacing, calc, patterns}
+\usepackage{float}
+\usepackage{mathtools}
+\usepackage{amsthm}
+\usepackage{verbatim}              % better theorem environments
+\usepackage{setspace}
+\usepackage{enumitem}
+\setenumerate[1]{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=5pt}
+\setitemize[1]{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=5pt}
+\setdescription{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=5pt}
+\usepackage{xcolor}
+\usepackage[colorlinks,linkcolor=black,anchorcolor=black,citecolor=black]{hyperref}
+%\usepackage{apacite}
+\usepackage[numbers]{natbib}
+%\usepackage{showkeys}
+\usepackage{cases}
+\usepackage{fancyhdr}
+\usepackage[scaled=0.92]{helvet}	% set Helvetica as the sans-serif font
+%\usepackage{upgreek}
+%\renewcommand{\rmdefault}{ptm}		% set Times as the default text font
+%\usepackage{newtxtext}
+\bibliographystyle{plain}
+% If AMS-LaTeX is used, it can be loaded before or after mtpro2		
+% The following loads metro and defines some common MTPro options [2, 4]
+%\usepackage[lite,subscriptcorrection,nofontinfo]{mtpro2}
+%\pdfmapfile{+mtpro2.map}
+
+%\usepackage{txfonts}
+
+% various theorems, numbered by section
+
+\makeatletter
+\renewenvironment{proof}[1][\proofname]{\par
+  \pushQED{\qed}%
+  \normalfont \topsep6\p@\@plus6\p@\relax
+  \trivlist
+  \item[\hskip\labelsep
+        \bfseries % 关键修改：斜体改为加粗
+        #1\@addpunct{.}]\ignorespaces
+}{%
+  \popQED\endtrivlist\@endpefalse
+}
+\makeatother
+\newtheoremstyle{kaiti-theorem}   % 样式名称
+  {3pt}                           % 上方间距
+  {3pt}                           % 下方间距
+  {\kaishu\upshape}               % 正文字体：中文楷体 + 英文直立
+  {}                              % 缩进量
+  {\bfseries\upshape}      % 头部字体（定理名）：中文楷体粗体 + 英文直立粗体
+  {.}                             % 定理名后标点
+  {0.5em}                         % 定理名后间距
+  {}                              % 头部说明（留空）
+
+% 应用自定义样式
+\theoremstyle{kaiti-theorem}
+\newtheorem{thm}{定理}[section]
+\newtheorem{nota}[thm]{记号}
+\newtheorem{question}{问题}
+\newtheorem*{questionn}{思考}
+\newtheorem{exe}{习题}[section]
+\newtheorem{assump}[thm]{假设}
+\newtheorem*{thmm}{定理}
+\newtheorem{defn}{定义}[section]
+\newtheorem{lem}[thm]{引理}
+\newtheorem*{lemm}{引理}
+\newtheorem{prop}[thm]{命题}
+\newtheorem*{propp}{命题}
+\newtheorem*{claim}{断言}
+\newtheorem{cor}[thm]{推论}
+\newtheorem{conj}[thm]{猜想}
+\newtheorem{rmk}{注记}[section]
+\newtheorem{ex}{例}[section]
+\newtheorem{pf}{证明}
+\newtheorem{problem}{作业题}
+\numberwithin{equation}{section}
+
+
+
+
+
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator*{\esssup}{ess\,sup}
+\renewcommand{\Re}{\textbf{Re}\,}  
+\renewcommand{\Im}{\textbf{Im}\,}  
+\newcommand{\R}{\mathbb{R}}  
+\newcommand{\FH}{\mathbb{H}}  
+\newcommand{\C}{\mathbb{C}}  
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\X}{\mathbb{X}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\T}{\mathbb{T}}
+\newcommand{\TT}{\mathcal{T}}
+\newcommand{\TP}{\overline{\partial}{}}
+\newcommand{\TJ}{\langle\TP\rangle}
+\newcommand{\TL}{\overline{\Delta}{}}
+\newcommand{\curl}{\text{curl }}
+\newcommand{\dive}{\text{div }}
+\newcommand{\bd}[1]{\mathbf{#1}}  % for bolding symbols
+\newcommand{\bds}[1]{\boldsymbol{#1}}  % for bolding symbols
+\newcommand{\RR}{\mathcal{R}}      % for Real numbers
+\newcommand{\sh}{\mathcal{S}}  
+\newcommand{\sph}{\mathbb{S}}  
+\newcommand{\Om}{\Omega}
+\newcommand{\OmT}{{\Omega_T}}
+\newcommand{\ut}{{U_T}}
+\newcommand{\vp}{\varphi}
+\newcommand{\Th}{\Theta}
+\newcommand{\Lam}{\Lambda}
+\newcommand{\Omb}{{\overline{\Omega}}}
+\newcommand{\OmbT}{{\overline{\Omega_T}}}
+\newcommand{\ub}{{\overline{U}}}
+\newcommand{\ubt}{{\overline{U_T}}}
+\newcommand{\q}{\quad}
+\newcommand{\p}{\partial}
+\newcommand{\pb}{\boldsymbol{\partial}}
+\newcommand{\lap}{\Delta}
+\newcommand{\dd}{\mathfrak{D}}
+\newcommand{\DD}{\mathcal{D}}
+\newcommand{\den}{{\bar\rho}_{0}}
+\newcommand{\Dt}{{\p}_{t}+v^{k}{\p}_{k}}
+\newcommand{\col}[1]{\left[\begin{matrix} #1 \end{matrix} \right]}
+\newcommand{\noi}{\noindent}
+\newcommand{\nab}{\nabla}
+\newcommand{\cnab}{\overline{\nab}}
+\newcommand{\cp}{\overline{\partial}{}}
+\newcommand{\dx}{\,\mathrm{d}x}
+\newcommand{\dxx}{\,\mathrm{d}\bds{x}}
+\newcommand{\xxi}{\boldsymbol{\xi}}
+\newcommand{\eeta}{\boldsymbol{\eta}}
+\newcommand{\dxxi}{\,\mathrm{d}\boldsymbol{\xi}}
+\newcommand{\deeta}{\,\mathrm{d}\boldsymbol{\eta}}
+\newcommand{\dxi}{\,\mathrm{d}\xi}
+\newcommand{\deta}{\,\mathrm{d}\eta}
+\newcommand{\dy}{\,\mathrm{d}y}
+\newcommand{\dyy}{\,\mathrm{d}\bds{y}}
+\newcommand{\dz}{\,\mathrm{d}z}
+\newcommand{\dzz}{\,\mathrm{d}\bds{z}}
+\newcommand{\dph}{\,\mathrm{d}\varphi}
+\newcommand{\dt}{\,\mathrm{d}t}
+\newcommand{\dr}{\,\mathrm{d}r}
+\newcommand{\dtt}{\,\mathrm{d}\tau}
+\newcommand{\dS}{\,\mathrm{d}S}
+\newcommand{\dss}{\,\mathrm{d}\sigma}
+\newcommand{\dmu}{\,\mathrm{d}\mu}
+\newcommand{\dnu}{\,\mathrm{d}\nu}
+\newcommand{\dV}{\,\mathrm{d}V}
+\newcommand{\ds}{\,\mathrm{d}s}
+\newcommand{\drr}{\,\mathrm{d}\rho}
+\newcommand{\dist}{\text{dist }}
+\newcommand{\vol}{\text{vol}\,}
+\newcommand{\volo}{\text{vol}(\Omega)}
+\newcommand{\spt}{\text{Spt}\,}
+\newcommand{\Tr}{\text{Tr}\,}
+\newcommand{\lee}{\langle}
+\newcommand{\ree}{\rangle}
+\newcommand{\xee}{\langle\xi\rangle}
+\newcommand{\xxee}{\langle\boldsymbol{\xi}\rangle}
+\newcommand{\xeta}{\langle\eta\rangle}
+\newcommand{\xeeta}{\langle\boldsymbol{\eta}\rangle}
+\newcommand{\kk}{\kappa}
+\newcommand{\lam}{\lambda}
+\newcommand{\io}{\int_{\Omega}}
+\newcommand{\iu}{\int_{U}}
+\newcommand{\is}{\int_{\Sigma}}
+\newcommand{\ipo}{\int_{\partial\Omega}}
+\newcommand{\ipu}{\int_{\partial U}}
+\newcommand{\ig}{\int_{\Gamma}}
+\newcommand{\ir}{\int_{\R}}
+\newcommand{\ird}{\int_{\R^d}}
+\newcommand{\irn}{\int_{\R^n}}
+\newcommand{\fpi}{\frac{1}{(2\pi)^{\frac{d}{2}}}}
+\newcommand{\ddt}{\frac{\mathrm{d}}{\mathrm{d}t}}
+\newcommand{\ddx}{\frac{\mathrm{d}}{\mathrm{d}x}}
+\newcommand{\eps}{\varepsilon}
+\providecommand{\jump}[1]{\left\llbracket #1 \right\rrbracket }
+\providecommand{\len}[1]{\lee #1 \ree }
+\providecommand{\ino}[1]{\left\| #1 \right\| }
+\providecommand{\bno}[1]{\left| #1 \right| }
+\newcommand{\red}{\textcolor{red}}
+\newcommand{\green}{\textcolor{green}}
+\newcommand{\blue}{\textcolor{blue}}
+\newcommand{\nnr}{{[n+1]}}
+\newcommand{\nnn}{{[n]}}
+\newcommand{\nnl}{{[n-1]}}
+\newcommand{\nnll}{{[n-2]}}	
+\newcommand{\mmr}{{[m+1]}}
+\newcommand{\mmm}{{[m]}}
+\newcommand{\mml}{{[m-1]}}
+\newcommand{\mmll}{{[m-2]}}
+
+%---------------Special variables--------------
+\newcommand{\CC}{\mathfrak{C}}  
+\newcommand{\NN}{\mathbf{N}}
+\newcommand{\LH}{\mathcal{L}}
+\newcommand{\HH}{\mathcal{H}}  
+\newcommand{\EE}{\mathcal{E}}  
+\newcommand{\FT}{\mathcal{F}}  
+\newcommand{\fT}{\mathbf{T}}  
+\newcommand{\FA}{\mathbf{A}}  
+\newcommand{\MH}{\mathcal{M}}
+\newcommand{\NH}{\mathcal{N}}
+\newcommand{\PH}{\mathcal{P}}
+\newcommand{\VH}{\mathcal{V}}
+\newcommand{\XX}{\mathfrak{X}}
+\newcommand{\xx}{{\bds{x}}}
+\newcommand{\bx}{\mathbf{x}}
+\newcommand{\by}{\mathbf{y}}
+\newcommand{\bp}{\mathbf{p}}
+\newcommand{\bq}{\mathbf{q}}
+\newcommand{\pp}{{\bds{p}}}
+\newcommand{\qq}{{\bds{q}}}
+\newcommand{\uu}{\mathbf{u}}
+\newcommand{\ww}{\mathbf{w}}
+\newcommand{\vv}{\mathbf{v}}
+\newcommand{\yy}{{\bds{y}}}
+\newcommand{\zz}{{\bds{z}}}
+\newcommand{\zo}{\mathbf{0}}
+\newcommand{\ee}{\mathbf{e}}
+\newcommand{\fa}{\mathbf{a}}
+\newcommand{\fb}{\mathbf{b}}
+\newcommand{\fc}{\mathbf{c}}
+\newcommand{\ff}{\bds{f}}
+\newcommand{\fr}{\mathbf{r}}
+\newcommand{\fh}{\mathbf{h}}
+\newcommand{\fm}{\mathbf{m}}
+\newcommand{\fg}{\mathbf{g}}
+\newcommand{\FF}{\mathbf{F}}
+\newcommand{\GG}{\mathbf{G}}
+\newcommand{\BB}{\mathbf{B}}
+
+
+
+\begin{document}
+\title{\LARGE{\bf  2026年春季学期现代偏微分方程作业二}}
+\author{二阶线性椭圆方程的弱解理论和极值原理}
+\date{截止时间：2026.4.14下课前（电子版截至当天23:59:59）}
+
+\maketitle
+
+\textbf{本次作业中的$U$一律假设为边界光滑的有界区域，$L$均为一致椭圆算子。}
+
+第1、2题为Lax-Milgram定理的应用，第3题为变分方法证明，第4题为预解式$L^2$估计，第5题为$(-\lap)$特征值与区域大小关系的计算，第6题是极值原理的简单应用，第7题引进的“闸函数”是控制椭圆方程解的边界梯度估计的重要工具，第8题在后面证明有界区域零边值热方程解的逐点指数衰减起到至关重要作用，尤其是它给出了一个很重要的想法：与“特征函数”作比较。
+
+\begin{problem}[习题2.2.2]
+函数 $u\in H_0^2(U)$ 是双调和方程
+\[
+\lap^2 u=f\text{ in }U,\q\q\q u=\frac{\p u}{\p N}=0\text{ on }\p U
+\]的弱解，是指对任意 $v\in H_0^2(U)$有$\iu \lap u\lap v\dxx=\iu fv\dxx$ 成立。给定 $f\in L^2(U)$，证明弱解的存在性和唯一性。
+\end{problem}
+
+\begin{problem}[习题2.2.3]  我们称函数 $u\in H^1(U)$ 是具有 Neumann 边界条件的 Poisson 方程的弱解
+\[
+-\lap u=f\text{ in }U,\q\q\q \frac{\p u}{\p N}=0\text{ on }\p U
+\]是指对任意的$v\in H^1(U)$有$\iu \nab u\cdot\nab v\dxx=\iu fv\dxx$ 成立。给定 $f\in L^2(U)$，证明：如上方程存在弱解当且仅当 $\iu f\dxx=0$.
+\end{problem}
+
+
+
+%\begin{problem}[习题2.2.4]
+%考虑具有 Robin 边界条件的 Poisson 方程
+%\[
+%-\lap u=f\text{ in }U,\q\q\q u+\frac{\p u}{\p N}=0\text{ on }\p U.
+%\]请定义该问题的弱解 $u\in H^1(U)$，并讨论对于给定 $f\in L^2(U)$ 时解的存在性和唯一性。
+%
+%提示：证明双线性型的强制性可以使用类似于定理 1.4.5 中 Poincar\'e 不等式证明的技巧。
+%\end{problem}
+
+\begin{problem}[问题2.2.1]
+考虑方程$\p_j(a^{ij}\p_i u)=f$ in $U$, $u=0$ on $\p U$，其中$f\in L^2(U)$, 诸$a^{ij}(\xx)$皆为$L^\infty(U)$且满足一致椭圆条件。令 $I[w]:=\iu \frac12 a^{ij}\p_i w\p_j w - fw \dxx.$
+\begin{itemize}
+\item [(1)] 设 $\{u_n\} \subset H_0^1(U)$ 在 $H_0^1(U)$ 中弱收敛到 $u$，证明 $\liminf\limits_{n\to\infty} I[u_n] \geqslant I[u]$. 
+\item [(2)] 证明：存在常数 $\alpha>0, \beta \in \R$ 使得 $I[w] \geqslant \alpha \|w\|_{H^1}^2 - \beta$ 对任意的 $w\in H_0^1(U)$ 都成立。
+\item [(3)] 令 $m:=\inf\limits_{w\in H_0^1(U)} I[w]<\infty$，证明存在 $u\in H_0^1(U)$ 使得 $I[u]=m$.
+\item [(4)] 证明极小化子 $u\in H_0^1(U)$ 的唯一性。（提示：如果 $u_1,u_2$ 是两个不同的极小化子，那么考虑 $\bar{u}=(u_1+u_2)/2$ 并证明 $I[\bar{u}]<(I[u_1]+I[u_2])/2$.)
+\item [(5)] 证明极小化子 $u$ 恰好是方程的弱解。
+\end{itemize}
+\end{problem}
+
+
+\begin{problem}[习题2.3.1]
+令$\Sigma$是$L$的全体特征值构成的集合。给定实数 $\lam\notin \Sigma$ 和函数 $f\in L^2(U)$，设 $u\in H_0^1(U)$ 为方程 $Lu=\lam u+f$ in $U$, $u=0$ on $\p U$ 的弱解。证明：存在常数 $C>0$ 使得 $\|u\|_{L^2(U)}\leqslant C\|f\|_{L^2(U)}$.（提示：反证法，本题在Evans书上是以定理形式呈现。）
+\end{problem}
+
+%
+%
+\begin{problem}[习题2.4.3，选做]
+考虑一族边界光滑的有界区域 $U(\tau)\subset\R^d$，它光滑地依赖于参数 $\tau\in\R$。随着 $\tau$ 的变化，$\p U(\tau)$ 上的每个点以速度 $\vv$ 移动。对于每个 $\tau$，我们考虑由 $$-\lap w=\lambda w \text{ in }U(\tau),~~~w|_{\p U(\tau)}=0$$ 定义的特征值 $\lam=\lam(\tau)$ 和相应的特征函数 $w=w(\xx;\tau)$，并限制 $\|w\|_{L^2(U(\tau))}=1$.
+设 $\lam, w$ 是 $\tau,\xx$ 的光滑函数。证明：
+\[
+\frac{\mathrm{d}\lam}{\dtt}=-\int_{\p U(\tau)}\left|\frac{\p w}{\p N}(\xx;\tau)\right|^2(\vv\cdot N)\dS_\xx
+\]其中 $\vv\cdot N$ 是边界 $\p U(\tau)$ 的法向速度。
+
+提示：变分原理给出 $\lam(\tau)=\int_{U(\tau)}|\nab w(\xx)|^2\dxx$，然后计算 $\lam'(\tau)$，剩下的就是证明 $\int_{U(\tau)}\p_{\tau}|\nab w(\xx;\tau)|^2=2\lam'(\tau)$，其中要利用 $\|w\|_{L^2(U(\tau))}\equiv 1$ 来证明 $\frac{\mathrm{d}}{\dtt}\|w\|_{L^2(U(\tau))}^2=0$. 
+\end{problem}
+
+\begin{problem}[习题2.6.1]
+设$u$是方程$-a^{ij}\p_i\p_j u=0$在$U$内的光滑解，系数$a^{ij}\in C^1(\ub)$. 证明：
+\[
+\max_U|\nab u|\leqslant C(\max_{\p U}|\nab u|+\max_{\p U}|u|).
+\]
+
+提示：令$v=|\nab u|^2+\lam u^2$, 选取充分大的$\lam$使得$L v\leqslant 0$在$U$中恒成立。
+\end{problem}
+
+\begin{problem}[习题2.6.2]
+设$u$是方程$-a^{ij}\p_i\p_j u=f\text{ in }U,~ u|_{\p \Om}=0$的光滑解，其中$f$有界。固定$\xx^0\in\p U$，我们称$C^2$函数$w$是$\xx^0$处的\textbf{闸函数 (barrier function)}是指$w$满足如下条件：
+\[
+Lw\geqslant 1\text{ in }U,~~w(\xx^0)=0,~~w\geqslant 0\text{ on }\p U.
+\]证明：若$w$是$\xx^0$处的一个闸函数，则存在常数$C>0$使得$|\nab u(\xx^0)|\leqslant C|\frac{\p w}{\p N}(\xx^0)|.$
+\end{problem}
+
+
+\begin{problem}[问题2.6.2]
+设$U\subset\R^d$是边界光滑的有界区域，$\lam_1>0$是$(-\lap)$算子(带Dirichlet边值)的主特征值，$w_1\in C^\infty(\ub)$是对应$\lam_1$的特征函数。证明：任给$g\in C^1(\ub)$并假设$g|_{\p U}=0$，必存在常数$A, B$，使得$A w_1(\xx)\leqslant g(\xx) \leqslant B w_1(\xx)$对任意$\xx\in\ub$成立。
+\end{problem}
+\end{document}
