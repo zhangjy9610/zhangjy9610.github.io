@@ -348,10 +348,10 @@ u^\eps(0,\boldsymbol{x}) = g(\boldsymbol{x}) \in H^2(\Om)&\xx\in\Omb.
 	\begin{itemize}
 	\item [(1a)] $\sup\limits_{t\in[0,T]}\|u^\eps\|_{H^1(\Om)}$ 关于 $\eps$ 一致有界，进而 $\{u^\eps\}$ 存在子列在 $L^\infty(0,T;H^1(\Om))$ 中弱-*收敛到 $u\in L^\infty(0,T;H^1(\Om))$, 且 $u$ 是 无粘传输方程 $\partial_t u + \mathbf{b}(t,\boldsymbol{x}) \cdot \nabla u =0$ 的弱解，初值仍为 $g$. 
 	\item [(1b)] 此时 $\p_1 u|_{\p\Om}$ 是否一定为零？
-	\item [(1c)] 对$R>0$，记$\Om_R=\Om\cap B(\bd{0},R)$，则$\{u^\eps\}$ 存在子列在 $L^\infty(0,T;L^2(\Om_R))$ 中强收敛，且 $\sup\limits_{t\in[0,T]}\|u^\eps-u\|_{L^2(\Om)}\leqslant C\sqrt{\eps}$. 
+	\item [(1c)] $\sup\limits_{t\in[0,T]}\|u^\eps-u\|_{L^2(\Om)}\leqslant C\sqrt{\eps}$. 
 	\end{itemize}
-\item [(2)] 若 $b_1=1$，证明：$\sup\limits_{t\in[0,T]}\|u^\eps\|_{L^2(\Om)}$ 关于 $\eps$ 仍然一致有界，并问：$\sup\limits_{t\in[0,T]}\|u^\eps\|_{H^1(\Om)}$ 关于 $\eps$ 是否一致有界？证明结论或者构造反例。
-\item [(3)] 如果把初值条件降为$g\in H^1(\Om)$，(2)的其它条件不变，则(2)的结论如何？
+\item [(2)] 若 $b_1=1$ 且 $b_2$ 不依赖 $x_1$. 证明：$\sup\limits_{t\in[0,T]}\|u^\eps\|_{L^2(\Om)}$ 关于 $\eps$ 仍然一致有界，并问：$\sup\limits_{t\in[0,T]}\|u^\eps\|_{H^1(\Om)}$ 关于 $\eps$ 是否一致有界？证明结论或者构造反例。
+%\item [(3)] 如果把初值条件降为$g\in H^1(\Om)$，(2)的其它条件不变，则(2)的结论如何？
 \end{itemize}
 提示：若$g\in H^2(\Om)$且方程解充分光滑，则$g$应该满足相容性条件$\p_1 g|_{\p\Om}=0$，但在$g\in H^1(\Om)$时无法定义$\p g$的迹。对(2)，思考如何对$u^\eps$的一阶导数做一致估计。
 \end{problem}
@@ -372,5 +372,7 @@ u^\eps(0,\boldsymbol{x}) = g(\boldsymbol{x}) \in H^2(\Om)&\xx\in\Omb.
    		\item [(4c)] 如果去掉$f\in H_0^1(U)$，此时是否还存在$a>0$，使得存在不依赖$\eps$的常数$C'>0$满足$\|u_\eps - u_0\|_{H^2(U)} \leqslant C'\eps^a$？证明你的结论。
    	\end{itemize}
    \end{itemize}
+   
+   提示：(3) 联想迹定理的结论；(4) 注意对 $f\in H_0^2$,  $\|\lap f\|_{L^2}$ 和 $\|f\|_{H^2}$ 是等价范数；对 (4c) 可以考虑模仿问题 2.2.2 构造高频序列，或者定义算子$T:H_0^1\to H_0^1$为：给定$h\in H_0^1$，令$Th\in H_0^2$是唯一满足 $\iu \lap(Th) \lap v=\iu \nab(Th)\cdot\nab v~(\forall v\in H_0^2)$的元素（由Lax--Milgram定理证明），验证它是自伴紧算子，于是得到一组正交基，再适当地选取 $u_0$ 在该正交基展开下的系数。
 \end{problem}
 \end{document}
