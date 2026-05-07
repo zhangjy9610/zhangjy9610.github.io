@@ -1,0 +1,341 @@
+\documentclass[UTF8,fontset=windows,12pt]{ctexart}
+%\setcounter{tocdepth}{1}
+%\setcounter{secnumdepth}{4}
+%\usepackage{ctex} %若要输入中文请取消注释或者把article改成ctexart
+% This first part of the file is called the PREAMBLE. It includes
+% customizations and command definitions. The preamble is everything
+% between \documentclass and \begin{document}.
+%\usepackage[OT1]{fontenc}
+%\usepackage{fontspec}
+%\setmainfont{Times New Roman}
+%\setCJKmainfont{Microsoft YaHei}
+\usepackage[left=1.91cm,right=1.91cm,top=2.54cm,bottom=2.54cm]{geometry}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[upint,lcgreekalpha]{stix}
+\usepackage[type1]{garamondlibre}
+%\usepackage{esint}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usepackage{extarrows}
+\usepackage[only,llbracket,rrbracket]{stmaryrd}
+\usepackage{titlesec}
+\usepackage{bm}
+\usepackage{graphicx}
+\usepackage{appendix}
+\usepackage{tikz-cd}
+\usepackage{tikz-3dplot}
+\usetikzlibrary{arrows.meta, decorations.pathreplacing, calc, patterns}
+\usepackage{float}
+\usepackage{mathtools}
+\usepackage{amsthm}
+\usepackage{verbatim}              % better theorem environments
+\usepackage{setspace}
+\usepackage{enumitem}
+\setenumerate[1]{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=5pt}
+\setitemize[1]{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=5pt}
+\setdescription{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=5pt}
+\usepackage{xcolor}
+\usepackage[colorlinks,linkcolor=black,anchorcolor=black,citecolor=black]{hyperref}
+%\usepackage{apacite}
+\usepackage[numbers]{natbib}
+%\usepackage{showkeys}
+\usepackage{cases}
+\usepackage{fancyhdr}
+\usepackage[scaled=0.92]{helvet}	% set Helvetica as the sans-serif font
+%\usepackage{upgreek}
+%\renewcommand{\rmdefault}{ptm}		% set Times as the default text font
+%\usepackage{newtxtext}
+\bibliographystyle{plain}
+% If AMS-LaTeX is used, it can be loaded before or after mtpro2		
+% The following loads metro and defines some common MTPro options [2, 4]
+%\usepackage[lite,subscriptcorrection,nofontinfo]{mtpro2}
+%\pdfmapfile{+mtpro2.map}
+
+%\usepackage{txfonts}
+
+% various theorems, numbered by section
+
+\makeatletter
+\renewenvironment{proof}[1][\proofname]{\par
+  \pushQED{\qed}%
+  \normalfont \topsep6\p@\@plus6\p@\relax
+  \trivlist
+  \item[\hskip\labelsep
+        \bfseries % 关键修改：斜体改为加粗
+        #1\@addpunct{.}]\ignorespaces
+}{%
+  \popQED\endtrivlist\@endpefalse
+}
+\makeatother
+\newtheoremstyle{kaiti-theorem}   % 样式名称
+  {3pt}                           % 上方间距
+  {3pt}                           % 下方间距
+  {\kaishu\upshape}               % 正文字体：中文楷体 + 英文直立
+  {}                              % 缩进量
+  {\bfseries\upshape}      % 头部字体（定理名）：中文楷体粗体 + 英文直立粗体
+  {.}                             % 定理名后标点
+  {0.5em}                         % 定理名后间距
+  {}                              % 头部说明（留空）
+
+% 应用自定义样式
+\theoremstyle{kaiti-theorem}
+\newtheorem{thm}{定理}[section]
+\newtheorem{nota}[thm]{记号}
+\newtheorem{question}{问题}
+\newtheorem*{questionn}{思考}
+\newtheorem{exe}{习题}[section]
+\newtheorem{assump}[thm]{假设}
+\newtheorem*{thmm}{定理}
+\newtheorem{defn}{定义}[section]
+\newtheorem{lem}[thm]{引理}
+\newtheorem*{lemm}{引理}
+\newtheorem{prop}[thm]{命题}
+\newtheorem*{propp}{命题}
+\newtheorem*{claim}{断言}
+\newtheorem{cor}[thm]{推论}
+\newtheorem{conj}[thm]{猜想}
+\newtheorem{rmk}{注记}[section]
+\newtheorem{ex}{例}[section]
+\newtheorem{pf}{证明}
+\newtheorem{problem}{作业题}
+\numberwithin{equation}{section}
+
+
+
+
+
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator*{\esssup}{ess\,sup}
+\renewcommand{\Re}{\textbf{Re}\,}  
+\renewcommand{\Im}{\textbf{Im}\,}  
+\newcommand{\R}{\mathbb{R}}  
+\newcommand{\FH}{\mathbb{H}}  
+\newcommand{\C}{\mathbb{C}}  
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\X}{\mathbb{X}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\T}{\mathbb{T}}
+\newcommand{\TT}{\mathcal{T}}
+\newcommand{\TP}{\overline{\partial}{}}
+\newcommand{\TJ}{\langle\TP\rangle}
+\newcommand{\TL}{\overline{\Delta}{}}
+\newcommand{\curl}{\text{curl }}
+\newcommand{\dive}{\text{div }}
+\newcommand{\bd}[1]{\mathbf{#1}}  % for bolding symbols
+\newcommand{\bds}[1]{\boldsymbol{#1}}  % for bolding symbols
+\newcommand{\RR}{\mathcal{R}}      % for Real numbers
+\newcommand{\sh}{\mathcal{S}}  
+\newcommand{\sph}{\mathbb{S}}  
+\newcommand{\Om}{\Omega}
+\newcommand{\OmT}{{\Omega_T}}
+\newcommand{\ut}{{U_T}}
+\newcommand{\vp}{\varphi}
+\newcommand{\Th}{\Theta}
+\newcommand{\Lam}{\Lambda}
+\newcommand{\Omb}{{\overline{\Omega}}}
+\newcommand{\OmbT}{{\overline{\Omega_T}}}
+\newcommand{\ub}{{\overline{U}}}
+\newcommand{\ubt}{{\overline{U_T}}}
+\newcommand{\q}{\quad}
+\newcommand{\p}{\partial}
+\newcommand{\pb}{\boldsymbol{\partial}}
+\newcommand{\lap}{\Delta}
+\newcommand{\dd}{\mathfrak{D}}
+\newcommand{\DD}{\mathcal{D}}
+\newcommand{\den}{{\bar\rho}_{0}}
+\newcommand{\Dt}{{\p}_{t}+v^{k}{\p}_{k}}
+\newcommand{\col}[1]{\left[\begin{matrix} #1 \end{matrix} \right]}
+\newcommand{\noi}{\noindent}
+\newcommand{\nab}{\nabla}
+\newcommand{\cnab}{\overline{\nab}}
+\newcommand{\cp}{\overline{\partial}{}}
+\newcommand{\dx}{\,\mathrm{d}x}
+\newcommand{\dxx}{\,\mathrm{d}\bds{x}}
+\newcommand{\xxi}{\boldsymbol{\xi}}
+\newcommand{\eeta}{\boldsymbol{\eta}}
+\newcommand{\dxxi}{\,\mathrm{d}\boldsymbol{\xi}}
+\newcommand{\deeta}{\,\mathrm{d}\boldsymbol{\eta}}
+\newcommand{\dxi}{\,\mathrm{d}\xi}
+\newcommand{\deta}{\,\mathrm{d}\eta}
+\newcommand{\dy}{\,\mathrm{d}y}
+\newcommand{\dyy}{\,\mathrm{d}\bds{y}}
+\newcommand{\dz}{\,\mathrm{d}z}
+\newcommand{\dzz}{\,\mathrm{d}\bds{z}}
+\newcommand{\dph}{\,\mathrm{d}\varphi}
+\newcommand{\dt}{\,\mathrm{d}t}
+\newcommand{\dr}{\,\mathrm{d}r}
+\newcommand{\dtt}{\,\mathrm{d}\tau}
+\newcommand{\dS}{\,\mathrm{d}S}
+\newcommand{\dss}{\,\mathrm{d}\sigma}
+\newcommand{\dmu}{\,\mathrm{d}\mu}
+\newcommand{\dnu}{\,\mathrm{d}\nu}
+\newcommand{\dV}{\,\mathrm{d}V}
+\newcommand{\ds}{\,\mathrm{d}s}
+\newcommand{\drr}{\,\mathrm{d}\rho}
+\newcommand{\dist}{\text{dist }}
+\newcommand{\vol}{\text{vol}\,}
+\newcommand{\volo}{\text{vol}(\Omega)}
+\newcommand{\spt}{\text{Spt}\,}
+\newcommand{\Tr}{\text{Tr}\,}
+\newcommand{\lee}{\langle}
+\newcommand{\ree}{\rangle}
+\newcommand{\xee}{\langle\xi\rangle}
+\newcommand{\xxee}{\langle\boldsymbol{\xi}\rangle}
+\newcommand{\xeta}{\langle\eta\rangle}
+\newcommand{\xeeta}{\langle\boldsymbol{\eta}\rangle}
+\newcommand{\kk}{\kappa}
+\newcommand{\lam}{\lambda}
+\newcommand{\io}{\int_{\Omega}}
+\newcommand{\iu}{\int_{U}}
+\newcommand{\is}{\int_{\Sigma}}
+\newcommand{\ipo}{\int_{\partial\Omega}}
+\newcommand{\ipu}{\int_{\partial U}}
+\newcommand{\ig}{\int_{\Gamma}}
+\newcommand{\ir}{\int_{\R}}
+\newcommand{\ird}{\int_{\R^d}}
+\newcommand{\irn}{\int_{\R^n}}
+\newcommand{\fpi}{\frac{1}{(2\pi)^{\frac{d}{2}}}}
+\newcommand{\ddt}{\frac{\mathrm{d}}{\mathrm{d}t}}
+\newcommand{\ddx}{\frac{\mathrm{d}}{\mathrm{d}x}}
+\newcommand{\eps}{\varepsilon}
+\providecommand{\jump}[1]{\left\llbracket #1 \right\rrbracket }
+\providecommand{\len}[1]{\lee #1 \ree }
+\providecommand{\ino}[1]{\left\| #1 \right\| }
+\providecommand{\bno}[1]{\left| #1 \right| }
+\newcommand{\red}{\textcolor{red}}
+\newcommand{\green}{\textcolor{green}}
+\newcommand{\blue}{\textcolor{blue}}
+\newcommand{\nnr}{{[n+1]}}
+\newcommand{\nnn}{{[n]}}
+\newcommand{\nnl}{{[n-1]}}
+\newcommand{\nnll}{{[n-2]}}	
+\newcommand{\mmr}{{[m+1]}}
+\newcommand{\mmm}{{[m]}}
+\newcommand{\mml}{{[m-1]}}
+\newcommand{\mmll}{{[m-2]}}
+
+%---------------Special variables--------------
+\newcommand{\CC}{\mathfrak{C}}  
+\newcommand{\NN}{\mathbf{N}}
+\newcommand{\LH}{\mathcal{L}}
+\newcommand{\HH}{\mathcal{H}}  
+\newcommand{\EE}{\mathcal{E}}  
+\newcommand{\FT}{\mathcal{F}}  
+\newcommand{\fT}{\mathbf{T}}  
+\newcommand{\FA}{\mathbf{A}}  
+\newcommand{\MH}{\mathcal{M}}
+\newcommand{\NH}{\mathcal{N}}
+\newcommand{\PH}{\mathcal{P}}
+\newcommand{\VH}{\mathcal{V}}
+\newcommand{\XX}{\mathfrak{X}}
+\newcommand{\xx}{{\bds{x}}}
+\newcommand{\bx}{\mathbf{x}}
+\newcommand{\by}{\mathbf{y}}
+\newcommand{\bp}{\mathbf{p}}
+\newcommand{\bq}{\mathbf{q}}
+\newcommand{\pp}{{\bds{p}}}
+\newcommand{\qq}{{\bds{q}}}
+\newcommand{\uu}{\mathbf{u}}
+\newcommand{\ww}{\mathbf{w}}
+\newcommand{\vv}{\mathbf{v}}
+\newcommand{\yy}{{\bds{y}}}
+\newcommand{\zz}{{\bds{z}}}
+\newcommand{\zo}{\mathbf{0}}
+\newcommand{\ee}{\mathbf{e}}
+\newcommand{\fa}{\mathbf{a}}
+\newcommand{\fb}{\mathbf{b}}
+\newcommand{\fc}{\mathbf{c}}
+\newcommand{\ff}{\bds{f}}
+\newcommand{\fr}{\mathbf{r}}
+\newcommand{\fh}{\mathbf{h}}
+\newcommand{\fm}{\mathbf{m}}
+\newcommand{\fg}{\mathbf{g}}
+\newcommand{\FF}{\mathbf{F}}
+\newcommand{\GG}{\mathbf{G}}
+\newcommand{\BB}{\mathbf{B}}
+
+
+
+\begin{document}
+\title{\LARGE{\bf  2026年春季学期现代偏微分方程作业四}}
+\author{Fourier分析、Schr\"odinger方程}
+\date{截止时间：2026.5.26下课前（电子版截至当天23:59:59）}
+
+\maketitle
+
+\begin{problem}[习题D.1.2，海森堡不确定性原理]\label{D-1:exe2}
+给定点$\xx_0,\xxi_0\in \R^d$ 以及\textbf{复值}函数 $f\in\mathcal{S}(\R^d)$, 证明如下海森堡不确定性原理：
+\begin{equation}
+\left(\ird |(\xx-\xx_0)f(\xx)|^2\dxx\right)\left(\ird |(\xxi-\xxi_0)\hat{f}(\xxi)|^2\dxxi\right)\geqslant \frac{d^2}{4} \left(\ird |f(\xx)|^2\dxx\right)^2.
+\end{equation} 这个不等式表明动量和位置不可能同时在给定的动量$\xxi_0$和给定的位置$\xx_0$附近被确定。
+
+提示：只需证明$\xxi_0=\xx_0=0$的情况即可，否则考虑$g(\xx)=f(\xx+\xx_0)e^{-i\xx\cdot\xxi_0}$并利用命题D.1.3(2)约化到这一特殊情况。利用Plancherel恒等式可得 $|\xxi\hat{f}(\xxi)|^2=|\widehat{\nab f}(\xxi)|^2$，之后再用Plancherel恒等式和 Cauchy--Schwarz不等式证明左边$\geqslant (\ird |(\xx\cdot\nab f)f|\dxx)^2$, 最后用$\Re(\nab f)\bar{f}=\frac12 \nab(|f|^2)$, 然后分部积分一次。
+\end{problem}
+
+\begin{problem}[习题D.2.2] 若 $F\in\DD'$ 且一阶分布导数皆为零，即$\p_j F=0$ 对 $1\leqslant j\leqslant d$ 成立。证明: $F$是$\R^d$ 上的常值函数。（提示：考虑 $F*\eta_\eps$.）
+\end{problem}
+
+
+\begin{problem}[习题5.1.3]
+设 $s_0\leqslant s\leqslant s_1$，证明：$\dot{H}^{s_0}(\R^d)\cap \dot{H}^{s_1}(\R^d)\subseteq \dot{H}^s(\R^d)$，且若 $s=(1-\theta)s_0+\theta s_1$, 则 $\|u\|_{\dot{H}^s(\R^d)}\leqslant \|u\|_{\dot{H}^{s_0}(\R^d)}^{1-\theta}\|u\|_{\dot{H}^{s_1}(\R^d)}^\theta.$ 该结论实际上对非齐次Sobolev空间也对。
+\end{problem}
+
+
+\begin{problem}[习题5.1.5]
+设 $0<s<1,~u\in\dot{H}^s(\R^d)$. 证明：存在代表元 $u\in L_{\text{loc}}^2(\R^d)$ 且满足
+\[
+\int_{\R^d} \int_{\R^d} \frac{|u(\xx+\yy)-u(\xx)|^2}{|\yy|^{d+2s}}\dxx\dyy<\infty.
+\]这给出了齐次Sobolev范数与Sobolev--Slobodecki\u{\i}范数之间的等价性。
+
+提示：将 $\hat{u}$ 分解为 $\{|\xxi|\leqslant 1\}$ 部分和 $\{|\xxi|>1\}$ 部分。然后在Sobolev--Slobodecki\u{\i}范数中对 $\xx$ 变量用Plancherel恒等式。
+\end{problem}
+
+\begin{problem}[习题5.2.4]
+若 $H^s(\R^d)\subset C_0(\R^d)$，其中 $C_0$ 表示在无穷远处收敛到零的连续函数，证明 $s>d/2$.
+
+提示：用闭图像定理证明包含映射 $H^s\hookrightarrow C_0$ 是连续的，然后考虑代入Fourier变换为 $\len{\xxi}^{-2s}\chi_{|\xxi|\leqslant R}(\xxi)$ 的函数去算$s$的范围。
+\end{problem}
+
+\begin{problem}[问题5.2.1]
+给定 $m\in\N^*$，设 $P(\p)=\sum\limits_{|\alpha|\leqslant m} c_\alpha\p^\alpha$ 其中 $c_\alpha\in\R$ 且存在$m$阶多重指标$\alpha$ 使得 $c_\alpha\neq 0$. 我们定义微分算子 $P(\p)$ 的\textbf{主象征 (principal symbol)} $P_m$ 为 $$P_m(\xxi):=\sum_{|\alpha|=m}c_\alpha\xxi^\alpha.$$ 我们称 $P(\p)$ 是 \textbf{$\mathbf{m}$ 阶椭圆的}，是指对任意 $\xxi\neq \bd{0}$ 都有 $P_m(\xxi)\neq 0$. 今假设 $P(\p)$ 是 $m$ 阶微分算子。
+\begin{itemize}
+\item [(1)] 证明：$P(\p)$ 是椭圆的当且仅当存在 $C,R>0$ 使得对 $|\xxi|\geqslant R$ 有 $|P(\xxi)|\geqslant C|\xxi|^m$.
+\item [(2)] 设$P(\p)$ 是椭圆的，若 $u\in H^s(\R^d)$ 且 $P(\p) u\in H^s(\R^d)$，证明：$u\in H^{s+m}(\R^d)$.
+\end{itemize}
+\end{problem}
+
+\begin{problem}[习题6.2.1]
+证明非线性Schr\"odinger方程 $\bd{i}u_t+\lap u=\mu|u|^{p-1}u~(\mu=\pm 1, p\geqslant 1)$ 的质量、能量和动量守恒律。
+\begin{itemize}
+\item (质量守恒) $\ddt\ird |u(t,\xx)|^2\dxx=0$.
+\item (能量守恒) $\ddt\ird \frac12|\nab u(t,\xx)|^2+\frac{\mu}{p+1}|u
+(t,\xx)|^{p+1}\dxx=0$.
+\item (动量守恒) $\ddt\Im\ird u(t,\xx)\overline{\nab u(t,\xx)}\dxx=0$.
+\end{itemize}
+\end{problem}
+
+\begin{problem}[习题6.1.2+问题6.2.3]
+今考虑cubic NLS解的性质。
+\begin{equation}\label{6-2:cubicNLS}\tag{NLS}
+\bd{i}\p_t u + \lap u = \mu |u|^2u~\text{ in }I\times\R^3,~~~u(0,\xx)=u_0(\xx).
+\end{equation}其中初值$u_0\in H^1(\R^3)$, $\mu=\pm 1$, $I\subset\R$是时间区间。
+\begin{itemize}
+\item [(1)] 考虑使用容许对$(p,q)=(4,3)$. 令$F(u)(t,\xx)=|u|^2u(t,\xx)$，证明如下带导数的Strichartz估计
+\[
+\left\|\int_\R e^{i(t-\tau)\lap}F(u)(\tau,\cdot)\dtt\right\|_{L_t^\infty H_\xx^1(I\times\R^3)}\leqslant \|u\|_{L_t^4 W_\xx^{1,3}(I\times\R^3)}^3.
+\]
+\item [(2)] 利用(1)证明：当$\|u_0\|_{H^1(\R^3)}\ll 1$时，方程\eqref{6-2:cubicNLS}有小初值整体解  $u\in L_t^{\infty}(\R;H_\xx^1(\R^3))\cap L_t^{4}(\R;W_\xx^{1,3}(\R^3))$. 
+\item [(3)] 在(2)的条件下证明散射结论：存在$u_\pm\in H^1(\R^3)$ 使得 $\lim\limits_{t\to\pm\infty}\|u(t,\cdot)-e^{it\lap}u_\pm\|_{H^1}=0$.
+\item [(4)] 现在设$\mu=-1$，初值还满足$|\xx|u_0\in L^2(\R^3)$. 设$u:[0,T_*)\times\R^3\to \C$是此时\eqref{6-2:cubicNLS}在$[0,T_*)\times\R^3$上的解。定义能量$E(t)$和位力势$V(t)$如下
+$$E(t):=\int_{\R^3}\frac12 |\nab u(t,\xx)|^2-\frac14 |u(t,\xx)|^4\dxx,\q V(t):=\int_{\R^3}|\xx|^2|u(t,\xx)|^2\dxx.$$ 证明：若$E(0)<0$，则$T_*<+\infty$. (提示：先写出Virial恒等式，然后证明$V''(t)\leqslant 16 E(t)$.)
+\end{itemize}
+\end{problem}
+
+
+
+\end{document}
