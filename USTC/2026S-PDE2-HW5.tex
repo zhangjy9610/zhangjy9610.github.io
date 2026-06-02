@@ -281,6 +281,8 @@ u=0~~~&\text{ on }[0,T]\times\p U.
 \item [(1)] 证明：对于\textbf{任意}常数 $D\in\R$，如上方程至多有一个光滑解 $u\in C^{\infty}([0,T)\times \ub)$.
 \item [(2)] 设$D=1$，且已知方程的整体光滑解存在（即可以延拓到$t=+\infty$），定义能量 $E_0(t):=\frac12\int_U (\p_tu(t,\xx))^2+|\nab u(t,\xx)|^2\dxx$. 证明：$\lim\limits_{t\to+\infty} E_0(t)=0$.
 \end{itemize}
+
+提示：(2) 对 $\eps>0$，先考虑 $E_\eps(t):=E_0(t)+\eps\iu u\p_t u\dxx$ 的能量估计，再证明 $\eps$ 适当小时 $E_\eps, E_0$ 是可比较的。
 \end{problem}
 
 \begin{problem}[习题7.2.2] 
@@ -288,7 +290,7 @@ u=0~~~&\text{ on }[0,T]\times\p U.
 \begin{equation}
 \begin{cases}
 \p_t^2 u -\lap  u +f( u )=0&~~t>0,~\xx\in\R^d;\\
- u (0,\xx)= u_0(\xx),~\p_t  u (0,x)=\psi_1(\xx)&~~\xx\in\R^d.
+ u (0,\xx)= u_0(\xx),~\p_t  u (0,x)=u_1(\xx)&~~\xx\in\R^d.
 \end{cases}
 \end{equation} 这里 $f$ 是连续函数，且假设 $ u $ 在 $|\xx|\to\infty$ 时趋于零。
 \begin{itemize}
@@ -304,13 +306,13 @@ K(\xx_0,t_0):=\{(t,\xx)\in[0,\infty)\times \R^d : 0\leqslant t\leqslant t_0,~|\x
 \Gamma(\xx_0,t_0):=\{(t,\xx)\in  [0,\infty)\times\R^d: 0\leqslant t\leqslant t_0,~|\xx-\xx_0|= t_0-t\}.
 \] 定义光锥上的能量通量(energy flux)为
 \[
-e(t):=\int_{B(\xx_0,t_0-t)}\frac12(|\p_t  u |^2+|\nab  u |^2) +F( u )\dxx~~0\leqslant t\leqslant t_0.
+e(t):=\int_{B(\xx_0,t_0-t)}\frac12(|\p_t  u |^2+|\nab  u |^2) +F( u )\dxx~~(0\leqslant t\leqslant t_0).
 \] 证明：
 \begin{equation}
 \frac{1}{\sqrt{2}}\int_{\Gamma(\xx_0,t_0)}\frac12|(\p_t  u )\nu-\nab  u |^2+F( u )\dS=e(0)
 \end{equation}其中 $\nu:=\frac{\xx-\xx_0}{|\xx-\xx_0|}$.
 \item [(3)] 设 $F\geqslant 0$，利用 (2) 证明如果$ u_0,  u_1$在$B(\xx_0,t_0)$中恒为零，那么$ u $在光锥$K(\xx_0,t_0)$ 内恒为零。
-\item [(4)] 证明 (3) 对于拟线性波动方程 $\p_t^2  u  -\lap  u  + f( u ,\pb  u )=0$ 的光滑解 $ u $ 也成立，其中 $f$ 连续且 $f(0,\mathbf{0})=0$. 
+\item [(4)] 证明 (3) 对于拟线性波动方程 $\p_t^2  u  -\lap  u  + f( u ,\pb  u )=0$ 的光滑解 $ u $ 也成立，其中 $f$ 是局部 Lipschitz 连续的且 $f(0,\mathbf{0})=0$. 
 \end{itemize}
 
 提示：(2) 计算 $e'(t)$ 并将其与待证等式的左端进行比较，尤其要思考系数 $1/\sqrt{2}$ 是如何出现的。(4) 考虑 $E(t)=\int_{B(\xx_0,t_0-t)}\frac12(|\p_t  u |^2+|\nab  u |^2) +  u^2\dxx$ 并注意到存在依赖于 $\| u ,\pb  u \|_{L^\infty}$ 的常数 $C>0$ 使得 $|f( u ,\pb u )|\leqslant C(| u |+|\pb u |)$成立。
@@ -344,7 +346,7 @@ u(0, \xx) = u_0(\xx), \quad \p_t u(0, \xx) = u_1(\xx)&\xx\in\R^3. \end{cases}
 \]其中初值$u_0,u_1\in C_c^\infty(\R^3)$支于球$B(0,R)$内，$R>0$给定，且满足$E(0):=\int_{\R^3}\frac12(|\nab u_0|^2+|u_1|^2)-\frac14 |u_0|^4 \dxx<0$.
 \begin{itemize}
 \item [(1)] 证明：存在常数 $A>0$ 使得 $\|\nabla u_0\|_{L^2}>A$，因此满足 $E(0)<0$ 的初值不可能是小初值。
-\item [(2)] 令 $I(t):=\int_{\R^3} u^2\dxx$，证明：$I''(t)\geqslant 6\int_{\R^3}(\p_t u)^2\dxx-8E(0)$，进而存在 $t_1\geqslant _0$ 使得对任意 $t\geqslant t_1$ 有 $I'(t)>0$.
+\item [(2)] 令 $I(t):=\int_{\R^3} u^2\dxx$，证明：$I''(t)\geqslant 6\int_{\R^3}(\p_t u)^2\dxx-8E(0)$，进而存在 $t_1\geqslant 0$ 使得对任意 $t\geqslant t_1$ 有 $I'(t)>0$.
 \item [(3)] 令 $J(t):=I(t)^{-1/2}$，证明: $J''(t)<0$, 且对任意 $t\geqslant t_1$ 有 $J'(t)<0$. 据此得出存在 $T_*<\infty$ 使得 $J(T_*)=0$, 即 $I(T_*)=+\infty$.
 \end{itemize}
 \end{problem}
