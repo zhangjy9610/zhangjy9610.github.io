@@ -1,0 +1,329 @@
+\documentclass[UTF8,fontset=windows,12pt]{ctexart}
+%\setcounter{tocdepth}{1}
+%\setcounter{secnumdepth}{4}
+%\usepackage{ctex} %若要输入中文请取消注释或者把article改成ctexart
+% This first part of the file is called the PREAMBLE. It includes
+% customizations and command definitions. The preamble is everything
+% between \documentclass and \begin{document}.
+%\usepackage[OT1]{fontenc}
+%\usepackage{fontspec}
+%\setmainfont{Times New Roman}
+%\setCJKmainfont{Microsoft YaHei}
+\usepackage[left=1.91cm,right=1.91cm,top=2.54cm,bottom=2.54cm]{geometry}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[upint,lcgreekalpha]{stix}
+\usepackage[type1]{garamondlibre}
+%\usepackage{esint}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usepackage{extarrows}
+\usepackage[only,llbracket,rrbracket]{stmaryrd}
+\usepackage{titlesec}
+\usepackage{bm}
+\usepackage{graphicx}
+\usepackage{appendix}
+\usepackage{tikz-cd}
+\usepackage{tikz-3dplot}
+\usetikzlibrary{arrows.meta, decorations.pathreplacing, calc, patterns}
+\usepackage{float}
+\usepackage{mathtools}
+\usepackage{amsthm}
+\usepackage{verbatim}              % better theorem environments
+\usepackage{setspace}
+\usepackage{enumitem}
+\setenumerate[1]{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=5pt}
+\setitemize[1]{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=5pt}
+\setdescription{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=5pt}
+\usepackage{xcolor}
+\usepackage[colorlinks,linkcolor=black,anchorcolor=black,citecolor=black]{hyperref}
+%\usepackage{apacite}
+\usepackage[numbers]{natbib}
+%\usepackage{showkeys}
+\usepackage{cases}
+\usepackage{fancyhdr}
+\usepackage[scaled=0.92]{helvet}	% set Helvetica as the sans-serif font
+%\usepackage{upgreek}
+%\renewcommand{\rmdefault}{ptm}		% set Times as the default text font
+%\usepackage{newtxtext}
+\bibliographystyle{plain}
+% If AMS-LaTeX is used, it can be loaded before or after mtpro2		
+% The following loads metro and defines some common MTPro options [2, 4]
+%\usepackage[lite,subscriptcorrection,nofontinfo]{mtpro2}
+%\pdfmapfile{+mtpro2.map}
+
+%\usepackage{txfonts}
+
+% various theorems, numbered by section
+
+\makeatletter
+\renewenvironment{proof}[1][\proofname]{\par
+  \pushQED{\qed}%
+  \normalfont \topsep6\p@\@plus6\p@\relax
+  \trivlist
+  \item[\hskip\labelsep
+        \bfseries % 关键修改：斜体改为加粗
+        #1\@addpunct{.}]\ignorespaces
+}{%
+  \popQED\endtrivlist\@endpefalse
+}
+\makeatother
+\newtheoremstyle{kaiti-theorem}   % 样式名称
+  {3pt}                           % 上方间距
+  {3pt}                           % 下方间距
+  {\kaishu\upshape}               % 正文字体：中文楷体 + 英文直立
+  {}                              % 缩进量
+  {\bfseries\upshape}      % 头部字体（定理名）：中文楷体粗体 + 英文直立粗体
+  {.}                             % 定理名后标点
+  {0.5em}                         % 定理名后间距
+  {}                              % 头部说明（留空）
+
+% 应用自定义样式
+\theoremstyle{kaiti-theorem}
+\newtheorem{thm}{定理}[section]
+\newtheorem{nota}[thm]{记号}
+\newtheorem{question}{问题}
+\newtheorem*{questionn}{思考}
+\newtheorem{exe}{习题}[section]
+\newtheorem{assump}[thm]{假设}
+\newtheorem*{thmm}{定理}
+\newtheorem{defn}{定义}[section]
+\newtheorem{lem}[thm]{引理}
+\newtheorem*{lemm}{引理}
+\newtheorem{prop}[thm]{命题}
+\newtheorem*{propp}{命题}
+\newtheorem*{claim}{断言}
+\newtheorem{cor}[thm]{推论}
+\newtheorem{conj}[thm]{猜想}
+\newtheorem{rmk}{注记}[section]
+\newtheorem{ex}{例}[section]
+\newtheorem{pf}{证明}
+\newtheorem{problem}{作业题}
+\numberwithin{equation}{section}
+
+
+
+
+
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator*{\esssup}{ess\,sup}
+\renewcommand{\Re}{\textbf{Re}\,}  
+\renewcommand{\Im}{\textbf{Im}\,}  
+\newcommand{\R}{\mathbb{R}}  
+\newcommand{\FH}{\mathbb{H}}  
+\newcommand{\C}{\mathbb{C}}  
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\X}{\mathbb{X}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\T}{\mathbb{T}}
+\newcommand{\TT}{\mathcal{T}}
+\newcommand{\TP}{\overline{\partial}{}}
+\newcommand{\TJ}{\langle\TP\rangle}
+\newcommand{\TL}{\overline{\Delta}{}}
+\newcommand{\curl}{\text{curl }}
+\newcommand{\dive}{\text{div }}
+\newcommand{\bd}[1]{\mathbf{#1}}  % for bolding symbols
+\newcommand{\bds}[1]{\boldsymbol{#1}}  % for bolding symbols
+\newcommand{\RR}{\mathcal{R}}      % for Real numbers
+\newcommand{\sh}{\mathcal{S}}  
+\newcommand{\sph}{\mathbb{S}}  
+\newcommand{\Om}{\Omega}
+\newcommand{\OmT}{{\Omega_T}}
+\newcommand{\ut}{{U_T}}
+\newcommand{\vp}{\varphi}
+\newcommand{\Th}{\Theta}
+\newcommand{\Lam}{\Lambda}
+\newcommand{\Omb}{{\overline{\Omega}}}
+\newcommand{\OmbT}{{\overline{\Omega_T}}}
+\newcommand{\ub}{{\overline{U}}}
+\newcommand{\ubt}{{\overline{U_T}}}
+\newcommand{\q}{\quad}
+\newcommand{\p}{\partial}
+\newcommand{\pb}{\boldsymbol{\partial}}
+\newcommand{\lap}{\Delta}
+\newcommand{\dd}{\mathfrak{D}}
+\newcommand{\DD}{\mathcal{D}}
+\newcommand{\den}{{\bar\rho}_{0}}
+\newcommand{\Dt}{{\p}_{t}+v^{k}{\p}_{k}}
+\newcommand{\col}[1]{\left[\begin{matrix} #1 \end{matrix} \right]}
+\newcommand{\noi}{\noindent}
+\newcommand{\nab}{\nabla}
+\newcommand{\cnab}{\overline{\nab}}
+\newcommand{\cp}{\overline{\partial}{}}
+\newcommand{\dx}{\,\mathrm{d}x}
+\newcommand{\dxx}{\,\mathrm{d}\bds{x}}
+\newcommand{\xxi}{\boldsymbol{\xi}}
+\newcommand{\eeta}{\boldsymbol{\eta}}
+\newcommand{\dxxi}{\,\mathrm{d}\boldsymbol{\xi}}
+\newcommand{\deeta}{\,\mathrm{d}\boldsymbol{\eta}}
+\newcommand{\dxi}{\,\mathrm{d}\xi}
+\newcommand{\deta}{\,\mathrm{d}\eta}
+\newcommand{\dy}{\,\mathrm{d}y}
+\newcommand{\dyy}{\,\mathrm{d}\bds{y}}
+\newcommand{\dz}{\,\mathrm{d}z}
+\newcommand{\dzz}{\,\mathrm{d}\bds{z}}
+\newcommand{\dph}{\,\mathrm{d}\varphi}
+\newcommand{\dt}{\,\mathrm{d}t}
+\newcommand{\dr}{\,\mathrm{d}r}
+\newcommand{\dtt}{\,\mathrm{d}\tau}
+\newcommand{\dS}{\,\mathrm{d}S}
+\newcommand{\dss}{\,\mathrm{d}\sigma}
+\newcommand{\dmu}{\,\mathrm{d}\mu}
+\newcommand{\dnu}{\,\mathrm{d}\nu}
+\newcommand{\dV}{\,\mathrm{d}V}
+\newcommand{\ds}{\,\mathrm{d}s}
+\newcommand{\drr}{\,\mathrm{d}\rho}
+\newcommand{\dist}{\text{dist }}
+\newcommand{\vol}{\text{vol}\,}
+\newcommand{\volo}{\text{vol}(\Omega)}
+\newcommand{\spt}{\text{Spt}\,}
+\newcommand{\Tr}{\text{Tr}\,}
+\newcommand{\lee}{\langle}
+\newcommand{\ree}{\rangle}
+\newcommand{\xee}{\langle\xi\rangle}
+\newcommand{\xxee}{\langle\boldsymbol{\xi}\rangle}
+\newcommand{\xeta}{\langle\eta\rangle}
+\newcommand{\xeeta}{\langle\boldsymbol{\eta}\rangle}
+\newcommand{\kk}{\kappa}
+\newcommand{\lam}{\lambda}
+\newcommand{\io}{\int_{\Omega}}
+\newcommand{\iu}{\int_{U}}
+\newcommand{\is}{\int_{\Sigma}}
+\newcommand{\ipo}{\int_{\partial\Omega}}
+\newcommand{\ipu}{\int_{\partial U}}
+\newcommand{\ig}{\int_{\Gamma}}
+\newcommand{\ir}{\int_{\R}}
+\newcommand{\ird}{\int_{\R^d}}
+\newcommand{\irn}{\int_{\R^n}}
+\newcommand{\fpi}{\frac{1}{(2\pi)^{\frac{d}{2}}}}
+\newcommand{\ddt}{\frac{\mathrm{d}}{\mathrm{d}t}}
+\newcommand{\ddx}{\frac{\mathrm{d}}{\mathrm{d}x}}
+\newcommand{\eps}{\varepsilon}
+\providecommand{\jump}[1]{\left\llbracket #1 \right\rrbracket }
+\providecommand{\len}[1]{\lee #1 \ree }
+\providecommand{\ino}[1]{\left\| #1 \right\| }
+\providecommand{\bno}[1]{\left| #1 \right| }
+\newcommand{\red}{\textcolor{red}}
+\newcommand{\green}{\textcolor{green}}
+\newcommand{\blue}{\textcolor{blue}}
+\newcommand{\nnr}{{[n+1]}}
+\newcommand{\nnn}{{[n]}}
+\newcommand{\nnl}{{[n-1]}}
+\newcommand{\nnll}{{[n-2]}}	
+\newcommand{\mmr}{{[m+1]}}
+\newcommand{\mmm}{{[m]}}
+\newcommand{\mml}{{[m-1]}}
+\newcommand{\mmll}{{[m-2]}}
+
+%---------------Special variables--------------
+\newcommand{\CC}{\mathfrak{C}}  
+\newcommand{\NN}{\mathbf{N}}
+\newcommand{\LH}{\mathcal{L}}
+\newcommand{\HH}{\mathcal{H}}  
+\newcommand{\EE}{\mathcal{E}}  
+\newcommand{\FT}{\mathcal{F}}  
+\newcommand{\fT}{\mathbf{T}}  
+\newcommand{\FA}{\mathbf{A}}  
+\newcommand{\MH}{\mathcal{M}}
+\newcommand{\NH}{\mathcal{N}}
+\newcommand{\PH}{\mathcal{P}}
+\newcommand{\VH}{\mathcal{V}}
+\newcommand{\XX}{\mathfrak{X}}
+\newcommand{\xx}{{\bds{x}}}
+\newcommand{\bx}{\mathbf{x}}
+\newcommand{\by}{\mathbf{y}}
+\newcommand{\bp}{\mathbf{p}}
+\newcommand{\bq}{\mathbf{q}}
+\newcommand{\pp}{{\bds{p}}}
+\newcommand{\qq}{{\bds{q}}}
+\newcommand{\uu}{\mathbf{u}}
+\newcommand{\ww}{\mathbf{w}}
+\newcommand{\vv}{\mathbf{v}}
+\newcommand{\yy}{{\bds{y}}}
+\newcommand{\zz}{{\bds{z}}}
+\newcommand{\zo}{\mathbf{0}}
+\newcommand{\ee}{\mathbf{e}}
+\newcommand{\fa}{\mathbf{a}}
+\newcommand{\fb}{\mathbf{b}}
+\newcommand{\fc}{\mathbf{c}}
+\newcommand{\ff}{\bds{f}}
+\newcommand{\fr}{\mathbf{r}}
+\newcommand{\fh}{\mathbf{h}}
+\newcommand{\fm}{\mathbf{m}}
+\newcommand{\fg}{\mathbf{g}}
+\newcommand{\FF}{\mathbf{F}}
+\newcommand{\GG}{\mathbf{G}}
+\newcommand{\BB}{\mathbf{B}}
+
+
+
+\begin{document}
+\title{\LARGE{\bf  2026年秋季学期~常微分方程~作业一}}
+\author{常微分方程的初等计算、解的存在唯一性定理}
+\date{截止时间：2026.9.16下课前（电子版截至当天23:59:59）}
+
+\maketitle
+
+\textbf{第5、9题选做，其它必做。禁止抄袭或使用AI直接生成答案PDF，被抓到者此次作业零分。}\\
+A组：交流生、高年级同学以及25级学号 $\leqslant$ PB25000295的同学把作业交给张博洋助教。\\
+B组：25级学号 $\geqslant$ PB25000304的同学把作业交给周芾助教。
+
+\begin{problem}[习题1.1.4] 
+解方程 $x'(t)=x(t)^a$, 其中 $a=1/5, 1, 2$, 并分别作出相应积分曲线族的草图.
+\end{problem}
+
+\begin{problem}[习题1.1.5]
+令牵引点 $A$ 沿 $x$ 轴正向运动，并以 $A$ 沿 $x$ 轴的位移 $s$ 为参数，$A(s)=(s,0),s\geqslant0.$ 质点 $B$ 从 $ B(0)=(0,b),~(b>0)$ 出发。假设绳长保持不变，即 $\|A(s)-B(s)\|=b$，其中 $B(s)=(x(t),y(t))$；并且 $B$ 的轨迹切向始终沿着由 $B$ 指向 $A$ 的方向，即存在非负函数 $\lambda(s)$ 使得 $(x'(s),y'(s))=\lambda(s)(s-x(s), -y(s))$。求质点 $B$ 的轨迹方程，即解出 $x(s), y(s)$ 的参数表达式。（注意：题干中的 $\lambda(s)$ 是可以跟 $x(s)$ 一起解出来的，最终答案不能含有 $\lambda(s)$。）
+\end{problem}
+
+\begin{problem}[习题1.2.4]
+求微分方程 $x'(t)\sin 2t=2(x(t)+\cos t)$ 满足 $t\to\pi/2$ 时仍有界的解。
+\end{problem}
+
+\begin{problem}[习题1.2.6]
+设 \(p, q\) 都是 \(T\)-周期连续函数, 并且 \(\int_0^T p(s)\ds>0. \) 证明: 方程 \(x'+p(t)x=q(t)\) 的任意解与其唯一 \(T\)-周期解之差在 \(t\to+\infty\) 时趋于零. 
+\end{problem}
+
+
+\begin{problem}[习题1.2.8, 选做] 设$E(t)$是取值恒大于零的光滑函数。对任意$t\geqslant 0$，它满足不等式 $$E'(t)\leqslant C(1+t)^{-\sigma}E(t)^p,~E(0)\leqslant\eps^2,$$ 其中 $\sigma>0, p>1, C>0, 0<\eps\ll 1$. 定义 $\tilde{T}_\varepsilon:=\inf\left\{t>0: E(t)=10\varepsilon^2\right\}$，试讨论 $\tilde{T}_\eps$ 的下界对 $\eps$ 的依赖关系，分情况 $\sigma>1, \sigma=1, 0<\sigma<1$ 讨论。
+\end{problem}
+
+
+\begin{problem}[习题1.3.1]
+求解方程 $x'(t)=-x(t)^2-\dfrac{1}{4t^2}$. （提示：先找形如 $x_p(t)=C/t$ 的特解）
+\end{problem}
+
+\bigskip \hrule \bigskip
+
+考虑如下形式的一阶常微分方程的初值问题
+\begin{equation}\label{2-0: IVP}\tag{2.0.1}
+ \xx'(t)=\ff(t, \xx(t)), \qquad \xx(t_0)=\xx_0, 
+\end{equation}
+其中 \(I\subset\R\) 是含有 \(t_0\) 的区间, 未知函数\(\xx:I\to\R^d\), 给定函数 \(\ff:D\to\R^d\) 的定义域\(D\) 是 \(\R\times\R^d\) 中的开集, 并且 \((t_0, \xx_0)\in D\). 
+
+\begin{problem}[习题2.1.2]
+对初值问题\eqref{2-0: IVP}，如果 $\ff$ 满足的条件改为：$\ff$ 连续, 且存在 $[t_0,t_0+a]$ 上的可积函数 (即绝对值的积分是收敛的) $k(t)$ 使得
+\[
+|\ff(t,\xx)|\leqslant k(t)(1+|\xx|),\quad |\ff(t,\xx_1)-\ff(t,\xx_2)|\leqslant k(t)|\xx_1-\xx_2|.
+\] 证明: 存在区间 $[t_0,t_0+\delta]$ 使得对应的 Picard 序列在该区间上一致收敛到\eqref{2-0: IVP}的解.
+\end{problem}
+
+\begin{problem}[习题2.1.3] 
+对初值问题\eqref{2-0: IVP}，设空间维数 $d=1$, 且 $f(t,x)$ 连续，并且关于 $x$ 变量是单调递减的。证明：该初值问题在 $t\geqslant t_0$ 的解是唯一的。并问：在 $t\leqslant t_0$ 上的解是否唯一？证明结论或者构造反例。
+\end{problem}
+
+\begin{problem}[习题2.2.2, 选做]
+设空间维数 $d=1$, 在区间 $I=[t_0,t_0+h]$ 上 ($h$定义与 Peano 存在性定理相同) 构造 Tonelli 序列如下：任给正整数 $n$, 令 $t_k=t_0+k\dfrac{h}{n}$, 然后我们从 $[t_0,t_1]$ 到 $[t_1,t_2]$, 再从 $[t_1,t_2]$ 到 $[t_2,t_3]$ 最终从 $[t_{n-2},t_{n-1}]$ 到 $[t_{n-1},t_n]$ 分段递归定义逼近解
+\[
+x_n(t)=\begin{cases}
+x_0& t\in[t_0,t_1]\\
+x_0+\int_{t_0}^{t-\frac{h}{n}} f(s,x_n(s))\ds&t\in[t_1,t_0+h]
+\end{cases}.
+\]　请用 Tonelli 序列和 Arzel\`a--Ascoli 引理证明 Peano 存在性定理。
+\end{problem}
+
+\end{document}
