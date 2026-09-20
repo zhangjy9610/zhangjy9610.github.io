@@ -1,0 +1,334 @@
+\documentclass[UTF8,fontset=windows,12pt]{ctexart}
+%\setcounter{tocdepth}{1}
+%\setcounter{secnumdepth}{4}
+%\usepackage{ctex} %若要输入中文请取消注释或者把article改成ctexart
+% This first part of the file is called the PREAMBLE. It includes
+% customizations and command definitions. The preamble is everything
+% between \documentclass and \begin{document}.
+%\usepackage[OT1]{fontenc}
+%\usepackage{fontspec}
+%\setmainfont{Times New Roman}
+%\setCJKmainfont{Microsoft YaHei}
+\usepackage[left=1.91cm,right=1.91cm,top=2.54cm,bottom=2.54cm]{geometry}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[upint,lcgreekalpha]{stix}
+\usepackage[type1]{garamondlibre}
+%\usepackage{esint}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usepackage{extarrows}
+\usepackage[only,llbracket,rrbracket]{stmaryrd}
+\usepackage{titlesec}
+\usepackage{bm}
+\usepackage{graphicx}
+\usepackage{appendix}
+\usepackage{tikz-cd}
+\usepackage{tikz-3dplot}
+\usetikzlibrary{arrows.meta, decorations.pathreplacing, calc, patterns}
+\usepackage{float}
+\usepackage{mathtools}
+\usepackage{amsthm}
+\usepackage{verbatim}              % better theorem environments
+\usepackage{setspace}
+\usepackage{enumitem}
+\setenumerate[1]{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=5pt}
+\setitemize[1]{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=5pt}
+\setdescription{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=5pt}
+\usepackage{xcolor}
+\usepackage[colorlinks,linkcolor=black,anchorcolor=black,citecolor=black]{hyperref}
+%\usepackage{apacite}
+\usepackage[numbers]{natbib}
+%\usepackage{showkeys}
+\usepackage{cases}
+\usepackage{fancyhdr}
+\usepackage[scaled=0.92]{helvet}	% set Helvetica as the sans-serif font
+%\usepackage{upgreek}
+%\renewcommand{\rmdefault}{ptm}		% set Times as the default text font
+%\usepackage{newtxtext}
+\bibliographystyle{plain}
+% If AMS-LaTeX is used, it can be loaded before or after mtpro2		
+% The following loads metro and defines some common MTPro options [2, 4]
+%\usepackage[lite,subscriptcorrection,nofontinfo]{mtpro2}
+%\pdfmapfile{+mtpro2.map}
+
+%\usepackage{txfonts}
+
+% various theorems, numbered by section
+
+\makeatletter
+\renewenvironment{proof}[1][\proofname]{\par
+  \pushQED{\qed}%
+  \normalfont \topsep6\p@\@plus6\p@\relax
+  \trivlist
+  \item[\hskip\labelsep
+        \bfseries % 关键修改：斜体改为加粗
+        #1\@addpunct{.}]\ignorespaces
+}{%
+  \popQED\endtrivlist\@endpefalse
+}
+\makeatother
+\newtheoremstyle{kaiti-theorem}   % 样式名称
+  {3pt}                           % 上方间距
+  {3pt}                           % 下方间距
+  {\kaishu\upshape}               % 正文字体：中文楷体 + 英文直立
+  {}                              % 缩进量
+  {\bfseries\upshape}      % 头部字体（定理名）：中文楷体粗体 + 英文直立粗体
+  {.}                             % 定理名后标点
+  {0.5em}                         % 定理名后间距
+  {}                              % 头部说明（留空）
+
+% 应用自定义样式
+\theoremstyle{kaiti-theorem}
+\newtheorem{thm}{定理}[section]
+\newtheorem{nota}[thm]{记号}
+\newtheorem{question}{问题}
+\newtheorem*{questionn}{思考}
+\newtheorem{exe}{习题}[section]
+\newtheorem{assump}[thm]{假设}
+\newtheorem*{thmm}{定理}
+\newtheorem{defn}{定义}[section]
+\newtheorem{lem}[thm]{引理}
+\newtheorem*{lemm}{引理}
+\newtheorem{prop}[thm]{命题}
+\newtheorem*{propp}{命题}
+\newtheorem*{claim}{断言}
+\newtheorem{cor}[thm]{推论}
+\newtheorem{conj}[thm]{猜想}
+\newtheorem{rmk}{注记}[section]
+\newtheorem{ex}{例}[section]
+\newtheorem{pf}{证明}
+\newtheorem{problem}{作业题}
+\numberwithin{equation}{section}
+
+
+
+
+
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator*{\esssup}{ess\,sup}
+\renewcommand{\Re}{\textbf{Re}\,}  
+\renewcommand{\Im}{\textbf{Im}\,}  
+\newcommand{\R}{\mathbb{R}}  
+\newcommand{\FH}{\mathbb{H}}  
+\newcommand{\C}{\mathbb{C}}  
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\X}{\mathbb{X}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\T}{\mathbb{T}}
+\newcommand{\TT}{\mathcal{T}}
+\newcommand{\TP}{\overline{\partial}{}}
+\newcommand{\TJ}{\langle\TP\rangle}
+\newcommand{\TL}{\overline{\Delta}{}}
+\newcommand{\curl}{\text{curl }}
+\newcommand{\dive}{\text{div }}
+\newcommand{\bd}[1]{\mathbf{#1}}  % for bolding symbols
+\newcommand{\bds}[1]{\boldsymbol{#1}}  % for bolding symbols
+\newcommand{\RR}{\mathcal{R}}      % for Real numbers
+\newcommand{\sh}{\mathcal{S}}  
+\newcommand{\sph}{\mathbb{S}}  
+\newcommand{\Om}{\Omega}
+\newcommand{\OmT}{{\Omega_T}}
+\newcommand{\ut}{{U_T}}
+\newcommand{\vp}{\varphi}
+\newcommand{\Th}{\Theta}
+\newcommand{\Lam}{\Lambda}
+\newcommand{\Omb}{{\overline{\Omega}}}
+\newcommand{\OmbT}{{\overline{\Omega_T}}}
+\newcommand{\ub}{{\overline{U}}}
+\newcommand{\ubt}{{\overline{U_T}}}
+\newcommand{\q}{\quad}
+\newcommand{\p}{\partial}
+\newcommand{\pb}{\boldsymbol{\partial}}
+\newcommand{\lap}{\Delta}
+\newcommand{\dd}{\mathfrak{D}}
+\newcommand{\DD}{\mathcal{D}}
+\newcommand{\den}{{\bar\rho}_{0}}
+\newcommand{\Dt}{{\p}_{t}+v^{k}{\p}_{k}}
+\newcommand{\col}[1]{\left[\begin{matrix} #1 \end{matrix} \right]}
+\newcommand{\noi}{\noindent}
+\newcommand{\nab}{\nabla}
+\newcommand{\cnab}{\overline{\nab}}
+\newcommand{\cp}{\overline{\partial}{}}
+\newcommand{\dx}{\,\mathrm{d}x}
+\newcommand{\dxx}{\,\mathrm{d}\bds{x}}
+\newcommand{\xxi}{\boldsymbol{\xi}}
+\newcommand{\eeta}{\boldsymbol{\eta}}
+\newcommand{\dxxi}{\,\mathrm{d}\boldsymbol{\xi}}
+\newcommand{\deeta}{\,\mathrm{d}\boldsymbol{\eta}}
+\newcommand{\dxi}{\,\mathrm{d}\xi}
+\newcommand{\deta}{\,\mathrm{d}\eta}
+\newcommand{\dy}{\,\mathrm{d}y}
+\newcommand{\dyy}{\,\mathrm{d}\bds{y}}
+\newcommand{\dz}{\,\mathrm{d}z}
+\newcommand{\dzz}{\,\mathrm{d}\bds{z}}
+\newcommand{\dph}{\,\mathrm{d}\varphi}
+\newcommand{\dt}{\,\mathrm{d}t}
+\newcommand{\dr}{\,\mathrm{d}r}
+\newcommand{\dtt}{\,\mathrm{d}\tau}
+\newcommand{\dS}{\,\mathrm{d}S}
+\newcommand{\dss}{\,\mathrm{d}\sigma}
+\newcommand{\dmu}{\,\mathrm{d}\mu}
+\newcommand{\dnu}{\,\mathrm{d}\nu}
+\newcommand{\dV}{\,\mathrm{d}V}
+\newcommand{\ds}{\,\mathrm{d}s}
+\newcommand{\drr}{\,\mathrm{d}\rho}
+\newcommand{\dist}{\text{dist }}
+\newcommand{\vol}{\text{vol}\,}
+\newcommand{\volo}{\text{vol}(\Omega)}
+\newcommand{\spt}{\text{Spt}\,}
+\newcommand{\Tr}{\text{Tr}\,}
+\newcommand{\lee}{\langle}
+\newcommand{\ree}{\rangle}
+\newcommand{\xee}{\langle\xi\rangle}
+\newcommand{\xxee}{\langle\boldsymbol{\xi}\rangle}
+\newcommand{\xeta}{\langle\eta\rangle}
+\newcommand{\xeeta}{\langle\boldsymbol{\eta}\rangle}
+\newcommand{\kk}{\kappa}
+\newcommand{\lam}{\lambda}
+\newcommand{\io}{\int_{\Omega}}
+\newcommand{\iu}{\int_{U}}
+\newcommand{\is}{\int_{\Sigma}}
+\newcommand{\ipo}{\int_{\partial\Omega}}
+\newcommand{\ipu}{\int_{\partial U}}
+\newcommand{\ig}{\int_{\Gamma}}
+\newcommand{\ir}{\int_{\R}}
+\newcommand{\ird}{\int_{\R^d}}
+\newcommand{\irn}{\int_{\R^n}}
+\newcommand{\fpi}{\frac{1}{(2\pi)^{\frac{d}{2}}}}
+\newcommand{\ddt}{\frac{\mathrm{d}}{\mathrm{d}t}}
+\newcommand{\ddx}{\frac{\mathrm{d}}{\mathrm{d}x}}
+\newcommand{\eps}{\varepsilon}
+\providecommand{\jump}[1]{\left\llbracket #1 \right\rrbracket }
+\providecommand{\len}[1]{\lee #1 \ree }
+\providecommand{\ino}[1]{\left\| #1 \right\| }
+\providecommand{\bno}[1]{\left| #1 \right| }
+\newcommand{\red}{\textcolor{red}}
+\newcommand{\green}{\textcolor{green}}
+\newcommand{\blue}{\textcolor{blue}}
+\newcommand{\nnr}{{[n+1]}}
+\newcommand{\nnn}{{[n]}}
+\newcommand{\nnl}{{[n-1]}}
+\newcommand{\nnll}{{[n-2]}}	
+\newcommand{\mmr}{{[m+1]}}
+\newcommand{\mmm}{{[m]}}
+\newcommand{\mml}{{[m-1]}}
+\newcommand{\mmll}{{[m-2]}}
+
+%---------------Special variables--------------
+\newcommand{\CC}{\mathfrak{C}}  
+\newcommand{\NN}{\mathbf{N}}
+\newcommand{\LH}{\mathcal{L}}
+\newcommand{\HH}{\mathcal{H}}  
+\newcommand{\EE}{\mathcal{E}}  
+\newcommand{\FT}{\mathcal{F}}  
+\newcommand{\fT}{\mathbf{T}}  
+\newcommand{\FA}{\mathbf{A}}  
+\newcommand{\MH}{\mathcal{M}}
+\newcommand{\NH}{\mathcal{N}}
+\newcommand{\PH}{\mathcal{P}}
+\newcommand{\VH}{\mathcal{V}}
+\newcommand{\XX}{\mathfrak{X}}
+\newcommand{\xx}{{\bds{x}}}
+\newcommand{\bx}{\mathbf{x}}
+\newcommand{\by}{\mathbf{y}}
+\newcommand{\bp}{\mathbf{p}}
+\newcommand{\bq}{\mathbf{q}}
+\newcommand{\pp}{{\bds{p}}}
+\newcommand{\qq}{{\bds{q}}}
+\newcommand{\uu}{\mathbf{u}}
+\newcommand{\ww}{\mathbf{w}}
+\newcommand{\vv}{\mathbf{v}}
+\newcommand{\yy}{{\bds{y}}}
+\newcommand{\zz}{{\bds{z}}}
+\newcommand{\zo}{\mathbf{0}}
+\newcommand{\ee}{\mathbf{e}}
+\newcommand{\fa}{\mathbf{a}}
+\newcommand{\fb}{\mathbf{b}}
+\newcommand{\fc}{\mathbf{c}}
+\newcommand{\ff}{\bds{f}}
+\newcommand{\fr}{\mathbf{r}}
+\newcommand{\fh}{\mathbf{h}}
+\newcommand{\fm}{\mathbf{m}}
+\newcommand{\fg}{\mathbf{g}}
+\newcommand{\FF}{\mathbf{F}}
+\newcommand{\GG}{\mathbf{G}}
+\newcommand{\BB}{\mathbf{B}}
+
+
+
+\begin{document}
+\title{\LARGE{\bf  2026年秋季学期~常微分方程~作业三}}
+\author{线性常微分方程组}
+\date{截止时间：2026.10.12下课前（电子版截至当天23:59:59）}
+
+\maketitle
+
+\textbf{禁止抄袭或使用AI直接生成答案PDF，被抓到者此次作业得零分。}
+
+%考虑如下形式的一阶常微分方程的初值问题
+%\begin{equation}\label{2-0: IVP}\tag{2.0.1}
+% \xx'(t)=\ff(t, \xx(t)), \qquad \xx(t_0)=\xx_0, 
+%\end{equation}
+%其中 \(I\subset\R\) 是含有 \(t_0\) 的区间, 未知函数\(\xx:I\to\R^d\), 给定函数 \(\ff:D\to\R^d\) 的定义域\(D\) 是 \(\R\times\R^d\) 中的开集, 并且 \((t_0, \xx_0)\in D\). 
+
+\begin{problem}[习题3.1.1]
+求解方程组 $\xx'(t)=A\xx(t)$, 其中系数矩阵 $A$ 分别如下。
+\begin{align*}
+(1)~A=\begin{pmatrix} 0&0&1\\0&1&0\\1&0&0 \end{pmatrix}\qquad\qquad (4)~A=\begin{pmatrix}1&9&1\\0&9&-8\\0&1&0 \end{pmatrix}\qquad\qquad (5)~A=\begin{pmatrix} 2&-1&-1\\2&-1&-2\\-1&1&2 \end{pmatrix}
+\end{align*}
+
+注：本题系数矩阵的特征值都是整数，如果算出奇怪数字肯定是算错了。
+\end{problem}
+
+\begin{problem}[习题3.1.2，选做]
+考虑变系数齐次线性方程组的初值问题 $\xx'(t)=A(t)\xx(t)$, $\xx(0)=\xx_0$. 其中 $A(t)=[a^{ij}(t)]_{d\times d}$ 各个元素都是\underline{有界}连续函数。变量 $t\geqslant 0$，即我们不考虑时间倒向演化。
+\begin{itemize}
+\item [(1)] 若全体$a^{ij}$皆为非负函数，且初值$\xx^0$的各分量也非负，证明解的各个分量保持非负。
+\item [(2)] 若把(1)的条件改为对全体$i\neq j$有$a^{ij}$皆为非负函数，其它条件不变，则(1)的结论是否成立？
+\end{itemize}
+
+提示：(1) 可以由 (2) 得到，若寻求直接证明，则可以考虑其 Picard 迭代序列满足的积分方程；(2) 利用 $a_{ii}(t)$ 的有界性，去充分大的常数 $C>0$ 使得 $A(t)+CI_d$ 的所有元素皆为非负。
+\end{problem}
+
+\begin{problem}[习题3.1.4] 
+对复方阵 $A$, 定义 $s(A)$ 是 $A$ 全体特征值实部的最大值。
+\begin{itemize}
+\item [(1)] 证明：对任意 $\eps>0$，存在与 $\eps$ 有关的常数 $C_\eps>0$ 使得对任意 $t\geqslant 0$ 成立 $\|e^{tA}\|\leqslant C_\eps e^{(s(A)+\eps)t}$.
+\item [(2)] 证明：存在不依赖 $\eps$ 的常数 $C>0$ 使得对任意 $t\geqslant 0$ 成立 $\|e^{tA}\|\leqslant C e^{s(A)t}$，当且仅当全体满足 $\Re \lam=s(A)$ 特征值所对应的 Jordan 块均为一阶。
+\item [(3)] 证明：$\sup\limits_{t\geqslant 0}\|e^{tA}\|<+\infty$ 当且仅当 $A$ 的全体特征值实部皆为非正，且全体实部为零的特征值对应的 Jordan 块皆为一阶。
+\end{itemize}
+注：这里的矩阵范数定义为 $\|M\|=\sup\limits_{|\xx|=1}|M\xx|$，它满足 $|M\xx|\leqslant \|M\||\xx|$, $\|MN\|\leqslant \|M\|\|N\|$ 以及 $\|M+N\|\leqslant \|M\|+\|N\|$.  本题应先对单个 Jordan 块讨论，并用到命题3.1.1的结论。
+\end{problem}
+
+
+\begin{problem}[习题3.2.1]
+解方程组 $\xx'(t)=A\xx(t) + \ff(t)$, 其中系数矩阵 $A$, 源项 $\ff$, 初值 $\xx(0)$ 如下。
+{\small\begin{align*}
+(1)&~A=\begin{pmatrix} 2&-1&-1\\2&-1&-2\\-1&1&2  \end{pmatrix},~~\ff=\begin{pmatrix}2t\\0\\0\end{pmatrix},~~\xx(0)=\begin{pmatrix}1\\0\\0\end{pmatrix}.\qquad (2)~A=\begin{pmatrix} -1&-1&0\\0&-1&-1\\0&0&-1 \end{pmatrix},~~\ff=\begin{pmatrix}t^2\\2t\\t\end{pmatrix},~~\xx(0)=\begin{pmatrix}0\\0\\0\end{pmatrix}.
+\end{align*}}
+\end{problem}
+
+
+\begin{problem}[习题3.2.2]
+设常系数方阵 $A$ 的全体特征值的实部皆为负，设向量值连续函数 $\fg$ 有界。令 $$\xx_b(t):=\int_{-\infty}^t e^{(t-s)A} \fg(s)\ds.$$ 证明如下结论。
+\begin{itemize}
+\item [(1)] 定义 $\xx_b$ 的积分绝对收敛，且是非齐次线性方程组 $\xx'(t)=A\xx(t)+\fg(t)$ 的一个有界整体解。（提示：用习题 3.1.4.）
+\item [(2)] (1) 中所述的方程组在$\R$上的有界整体解是唯一的。
+\item [(3)] 若 $\fg$ 是以 $T>0$ 为周期的函数，则 $\xx_b$ 也是。
+\item [(4)]  (1) 中所述的方程组的其他任意解 $\xx(t)$ 都满足：当 $t\to+\infty$ 时，成立 $|\xx(t)-\xx_b(t)|\to 0$.
+\end{itemize}
+\end{problem}
+
+\begin{problem}[习题3.2.3]
+设 $A(t):[0,+\infty)\to \R^{d\times d}$ 是连续系数方阵，且 $\int_0^{+\infty}\|A(t)\|\dt<+\infty$. 设 $\Phi$ 是满足 $\Phi'(t)=A(t)\Phi(t)$, $\Phi(0)=I_d$ 的标准基解矩阵。证明 $\Phi(t)$ 在 $[0,+\infty)$ 一致有界，且存在可逆方阵 $\Phi_\infty$ 使得当 $t\to+\infty$ 时有 $\|\Phi(t)-\Phi_\infty\|\to 0$. 进而该齐次方程组的每个解都有极限，且从初值映射到极限值的映射是 $\R^d$ 上的线性同构。
+
+提示：把微分方程转化为积分方程即可看出为什么加了条件 $\int_0^{+\infty}\|A(t)\|\dt<+\infty$，然后思考极限方阵 $\Phi_\infty$ 的可逆性是怎么来的。
+\end{problem}
+
+
+\end{document}
