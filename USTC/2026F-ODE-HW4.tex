@@ -1,0 +1,329 @@
+\documentclass[UTF8,fontset=windows,12pt]{ctexart}
+%\setcounter{tocdepth}{1}
+%\setcounter{secnumdepth}{4}
+%\usepackage{ctex} %若要输入中文请取消注释或者把article改成ctexart
+% This first part of the file is called the PREAMBLE. It includes
+% customizations and command definitions. The preamble is everything
+% between \documentclass and \begin{document}.
+%\usepackage[OT1]{fontenc}
+%\usepackage{fontspec}
+%\setmainfont{Times New Roman}
+%\setCJKmainfont{Microsoft YaHei}
+\usepackage[left=1.91cm,right=1.91cm,top=2.54cm,bottom=2.54cm]{geometry}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[upint,lcgreekalpha]{stix}
+\usepackage[type1]{garamondlibre}
+%\usepackage{esint}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usepackage{extarrows}
+\usepackage[only,llbracket,rrbracket]{stmaryrd}
+\usepackage{titlesec}
+\usepackage{bm}
+\usepackage{graphicx}
+\usepackage{appendix}
+\usepackage{tikz-cd}
+\usepackage{tikz-3dplot}
+\usetikzlibrary{arrows.meta, decorations.pathreplacing, calc, patterns}
+\usepackage{float}
+\usepackage{mathtools}
+\usepackage{amsthm}
+\usepackage{verbatim}              % better theorem environments
+\usepackage{setspace}
+\usepackage{enumitem}
+\setenumerate[1]{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=5pt}
+\setitemize[1]{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=5pt}
+\setdescription{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=5pt}
+\usepackage{xcolor}
+\usepackage[colorlinks,linkcolor=black,anchorcolor=black,citecolor=black]{hyperref}
+%\usepackage{apacite}
+\usepackage[numbers]{natbib}
+%\usepackage{showkeys}
+\usepackage{cases}
+\usepackage{fancyhdr}
+\usepackage[scaled=0.92]{helvet}	% set Helvetica as the sans-serif font
+%\usepackage{upgreek}
+%\renewcommand{\rmdefault}{ptm}		% set Times as the default text font
+%\usepackage{newtxtext}
+\bibliographystyle{plain}
+% If AMS-LaTeX is used, it can be loaded before or after mtpro2		
+% The following loads metro and defines some common MTPro options [2, 4]
+%\usepackage[lite,subscriptcorrection,nofontinfo]{mtpro2}
+%\pdfmapfile{+mtpro2.map}
+
+%\usepackage{txfonts}
+
+% various theorems, numbered by section
+
+\makeatletter
+\renewenvironment{proof}[1][\proofname]{\par
+  \pushQED{\qed}%
+  \normalfont \topsep6\p@\@plus6\p@\relax
+  \trivlist
+  \item[\hskip\labelsep
+        \bfseries % 关键修改：斜体改为加粗
+        #1\@addpunct{.}]\ignorespaces
+}{%
+  \popQED\endtrivlist\@endpefalse
+}
+\makeatother
+\newtheoremstyle{kaiti-theorem}   % 样式名称
+  {3pt}                           % 上方间距
+  {3pt}                           % 下方间距
+  {\kaishu\upshape}               % 正文字体：中文楷体 + 英文直立
+  {}                              % 缩进量
+  {\bfseries\upshape}      % 头部字体（定理名）：中文楷体粗体 + 英文直立粗体
+  {.}                             % 定理名后标点
+  {0.5em}                         % 定理名后间距
+  {}                              % 头部说明（留空）
+
+% 应用自定义样式
+\theoremstyle{kaiti-theorem}
+\newtheorem{thm}{定理}[section]
+\newtheorem{nota}[thm]{记号}
+\newtheorem{question}{问题}
+\newtheorem*{questionn}{思考}
+\newtheorem{exe}{习题}[section]
+\newtheorem{assump}[thm]{假设}
+\newtheorem*{thmm}{定理}
+\newtheorem{defn}{定义}[section]
+\newtheorem{lem}[thm]{引理}
+\newtheorem*{lemm}{引理}
+\newtheorem{prop}[thm]{命题}
+\newtheorem*{propp}{命题}
+\newtheorem*{claim}{断言}
+\newtheorem{cor}[thm]{推论}
+\newtheorem{conj}[thm]{猜想}
+\newtheorem{rmk}{注记}[section]
+\newtheorem{ex}{例}[section]
+\newtheorem{pf}{证明}
+\newtheorem{problem}{作业题}
+\numberwithin{equation}{section}
+
+
+
+
+
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator*{\esssup}{ess\,sup}
+\renewcommand{\Re}{\textbf{Re}\,}  
+\renewcommand{\Im}{\textbf{Im}\,}  
+\newcommand{\R}{\mathbb{R}}  
+\newcommand{\FH}{\mathbb{H}}  
+\newcommand{\C}{\mathbb{C}}  
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\X}{\mathbb{X}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\T}{\mathbb{T}}
+\newcommand{\TT}{\mathcal{T}}
+\newcommand{\TP}{\overline{\partial}{}}
+\newcommand{\TJ}{\langle\TP\rangle}
+\newcommand{\TL}{\overline{\Delta}{}}
+\newcommand{\curl}{\text{curl }}
+\newcommand{\dive}{\text{div }}
+\newcommand{\bd}[1]{\mathbf{#1}}  % for bolding symbols
+\newcommand{\bds}[1]{\boldsymbol{#1}}  % for bolding symbols
+\newcommand{\RR}{\mathcal{R}}      % for Real numbers
+\newcommand{\sh}{\mathcal{S}}  
+\newcommand{\sph}{\mathbb{S}}  
+\newcommand{\Om}{\Omega}
+\newcommand{\OmT}{{\Omega_T}}
+\newcommand{\ut}{{U_T}}
+\newcommand{\vp}{\varphi}
+\newcommand{\Th}{\Theta}
+\newcommand{\Lam}{\Lambda}
+\newcommand{\Omb}{{\overline{\Omega}}}
+\newcommand{\OmbT}{{\overline{\Omega_T}}}
+\newcommand{\ub}{{\overline{U}}}
+\newcommand{\ubt}{{\overline{U_T}}}
+\newcommand{\q}{\quad}
+\newcommand{\p}{\partial}
+\newcommand{\pb}{\boldsymbol{\partial}}
+\newcommand{\lap}{\Delta}
+\newcommand{\dd}{\mathfrak{D}}
+\newcommand{\DD}{\mathcal{D}}
+\newcommand{\den}{{\bar\rho}_{0}}
+\newcommand{\Dt}{{\p}_{t}+v^{k}{\p}_{k}}
+\newcommand{\col}[1]{\left[\begin{matrix} #1 \end{matrix} \right]}
+\newcommand{\noi}{\noindent}
+\newcommand{\nab}{\nabla}
+\newcommand{\cnab}{\overline{\nab}}
+\newcommand{\cp}{\overline{\partial}{}}
+\newcommand{\dx}{\,\mathrm{d}x}
+\newcommand{\dxx}{\,\mathrm{d}\bds{x}}
+\newcommand{\xxi}{\boldsymbol{\xi}}
+\newcommand{\eeta}{\boldsymbol{\eta}}
+\newcommand{\dxxi}{\,\mathrm{d}\boldsymbol{\xi}}
+\newcommand{\deeta}{\,\mathrm{d}\boldsymbol{\eta}}
+\newcommand{\dxi}{\,\mathrm{d}\xi}
+\newcommand{\deta}{\,\mathrm{d}\eta}
+\newcommand{\dy}{\,\mathrm{d}y}
+\newcommand{\dyy}{\,\mathrm{d}\bds{y}}
+\newcommand{\dz}{\,\mathrm{d}z}
+\newcommand{\dzz}{\,\mathrm{d}\bds{z}}
+\newcommand{\dph}{\,\mathrm{d}\varphi}
+\newcommand{\dt}{\,\mathrm{d}t}
+\newcommand{\dr}{\,\mathrm{d}r}
+\newcommand{\dtt}{\,\mathrm{d}\tau}
+\newcommand{\dS}{\,\mathrm{d}S}
+\newcommand{\dss}{\,\mathrm{d}\sigma}
+\newcommand{\dmu}{\,\mathrm{d}\mu}
+\newcommand{\dnu}{\,\mathrm{d}\nu}
+\newcommand{\dV}{\,\mathrm{d}V}
+\newcommand{\ds}{\,\mathrm{d}s}
+\newcommand{\drr}{\,\mathrm{d}\rho}
+\newcommand{\dist}{\text{dist }}
+\newcommand{\vol}{\text{vol}\,}
+\newcommand{\volo}{\text{vol}(\Omega)}
+\newcommand{\spt}{\text{Spt}\,}
+\newcommand{\Tr}{\text{Tr}\,}
+\newcommand{\lee}{\langle}
+\newcommand{\ree}{\rangle}
+\newcommand{\xee}{\langle\xi\rangle}
+\newcommand{\xxee}{\langle\boldsymbol{\xi}\rangle}
+\newcommand{\xeta}{\langle\eta\rangle}
+\newcommand{\xeeta}{\langle\boldsymbol{\eta}\rangle}
+\newcommand{\kk}{\kappa}
+\newcommand{\lam}{\lambda}
+\newcommand{\io}{\int_{\Omega}}
+\newcommand{\iu}{\int_{U}}
+\newcommand{\is}{\int_{\Sigma}}
+\newcommand{\ipo}{\int_{\partial\Omega}}
+\newcommand{\ipu}{\int_{\partial U}}
+\newcommand{\ig}{\int_{\Gamma}}
+\newcommand{\ir}{\int_{\R}}
+\newcommand{\ird}{\int_{\R^d}}
+\newcommand{\irn}{\int_{\R^n}}
+\newcommand{\fpi}{\frac{1}{(2\pi)^{\frac{d}{2}}}}
+\newcommand{\ddt}{\frac{\mathrm{d}}{\mathrm{d}t}}
+\newcommand{\ddx}{\frac{\mathrm{d}}{\mathrm{d}x}}
+\newcommand{\eps}{\varepsilon}
+\providecommand{\jump}[1]{\left\llbracket #1 \right\rrbracket }
+\providecommand{\len}[1]{\lee #1 \ree }
+\providecommand{\ino}[1]{\left\| #1 \right\| }
+\providecommand{\bno}[1]{\left| #1 \right| }
+\newcommand{\red}{\textcolor{red}}
+\newcommand{\green}{\textcolor{green}}
+\newcommand{\blue}{\textcolor{blue}}
+\newcommand{\nnr}{{[n+1]}}
+\newcommand{\nnn}{{[n]}}
+\newcommand{\nnl}{{[n-1]}}
+\newcommand{\nnll}{{[n-2]}}	
+\newcommand{\mmr}{{[m+1]}}
+\newcommand{\mmm}{{[m]}}
+\newcommand{\mml}{{[m-1]}}
+\newcommand{\mmll}{{[m-2]}}
+
+%---------------Special variables--------------
+\newcommand{\CC}{\mathfrak{C}}  
+\newcommand{\NN}{\mathbf{N}}
+\newcommand{\LH}{\mathcal{L}}
+\newcommand{\HH}{\mathcal{H}}  
+\newcommand{\EE}{\mathcal{E}}  
+\newcommand{\FT}{\mathcal{F}}  
+\newcommand{\fT}{\mathbf{T}}  
+\newcommand{\FA}{\mathbf{A}}  
+\newcommand{\MH}{\mathcal{M}}
+\newcommand{\NH}{\mathcal{N}}
+\newcommand{\PH}{\mathcal{P}}
+\newcommand{\VH}{\mathcal{V}}
+\newcommand{\XX}{\mathfrak{X}}
+\newcommand{\xx}{{\bds{x}}}
+\newcommand{\bx}{\mathbf{x}}
+\newcommand{\by}{\mathbf{y}}
+\newcommand{\bp}{\mathbf{p}}
+\newcommand{\bq}{\mathbf{q}}
+\newcommand{\pp}{{\bds{p}}}
+\newcommand{\qq}{{\bds{q}}}
+\newcommand{\uu}{\mathbf{u}}
+\newcommand{\ww}{\mathbf{w}}
+\newcommand{\vv}{\mathbf{v}}
+\newcommand{\yy}{{\bds{y}}}
+\newcommand{\zz}{{\bds{z}}}
+\newcommand{\zo}{\mathbf{0}}
+\newcommand{\ee}{\mathbf{e}}
+\newcommand{\fa}{\mathbf{a}}
+\newcommand{\fb}{\mathbf{b}}
+\newcommand{\fc}{\mathbf{c}}
+\newcommand{\ff}{\bds{f}}
+\newcommand{\fr}{\mathbf{r}}
+\newcommand{\fh}{\mathbf{h}}
+\newcommand{\fm}{\mathbf{m}}
+\newcommand{\fg}{\mathbf{g}}
+\newcommand{\FF}{\mathbf{F}}
+\newcommand{\GG}{\mathbf{G}}
+\newcommand{\BB}{\mathbf{B}}
+
+
+
+\begin{document}
+\title{\LARGE{\bf  2026年秋季学期~常微分方程~作业四}}
+\author{定性理论初步}
+\date{截止时间：2026.10.26下课前（电子版截至当天23:59:59）}
+
+\maketitle
+
+\textbf{禁止抄袭或使用AI直接生成答案PDF，被抓到者此次作业得零分。}
+
+%考虑如下形式的一阶常微分方程的初值问题
+%\begin{equation}\label{2-0: IVP}\tag{2.0.1}
+% \xx'(t)=\ff(t, \xx(t)), \qquad \xx(t_0)=\xx_0, 
+%\end{equation}
+%其中 \(I\subset\R\) 是含有 \(t_0\) 的区间, 未知函数\(\xx:I\to\R^d\), 给定函数 \(\ff:D\to\R^d\) 的定义域\(D\) 是 \(\R\times\R^d\) 中的开集, 并且 \((t_0, \xx_0)\in D\). 
+
+\begin{problem}[习题4.1.1]
+判断如下方程的奇点 $(0,0)$ 是什么类型，说明其稳定性，并作该奇点附近的相图。
+\begin{itemize}
+\item [(1)] $x'=4y-x$, $y'=-9x+y$. 
+\item [(2)] $x'=x+2y$, $y'=5y-2x$.
+\item [(3)] $x'=2x+y$, $y'=x+2y$.
+\end{itemize}
+\end{problem}
+
+\begin{problem}[习题4.1.2]
+设 $x,t$ 均为标量，$a$为连续函数，求方程 $x'(t)=a(t)x(t) $ 的零解稳定及渐近稳定的充要条件。
+\end{problem}
+
+\begin{problem}[习题4.2.1] 
+判断如下方程的奇点 $(0,0)$ 是什么类型，说明其稳定性。
+\begin{itemize}
+\item [(2)] $x'=x+2y$, $y'=5y-2x+x^3$.
+\item [(3)] $x'=2x+4y+\sin y$, $y'=x+y+e^y-1$.
+\end{itemize}
+\end{problem}
+
+
+\begin{problem}[习题4.2.3，2025期末第4题]
+求 $x'(t)=2y(t), y'(t)=x(t)-x(t)^2-y(t)$ 的所有平衡点，并判断其稳定性，作出平衡点附近的相图草图。
+\end{problem}
+
+
+\begin{problem}[习题4.3.1的改编]
+设 $g\in C^1(\R)$, 且 $x\neq 0$ 时 $xg(x)>0$. 
+\begin{itemize}
+\item [(1)] 证明: 方程 $x''(t)+g(x(t))=0$ 的零解是稳定但不渐近稳定的。
+\item [(2)] 设再有 $g'(0)>0$. 今对 $\eps\in(0,1)$ 考虑\(\varepsilon x''(t)+x'(t)+g(x(t))=0.\) 证明：对任意固定的 $\eps\in(0,1)$，该系统的零解是渐近稳定的。
+\item [(3)] 取 \(g(x)=x\)。对 \(0<\varepsilon<\frac14\)，设 \(x_\varepsilon(t)\) 是初值问题 \(\varepsilon x_\varepsilon''+x_\varepsilon'+x_\varepsilon=0,~x_\varepsilon(0)=a,~ x_\varepsilon'(0)=b\)
+的解，其中 \(a,b\) 与 \(\varepsilon\) 无关。又设 \(X(t)\) 满足 $X'+X=0,~ X(0)=a.$ 证明：对任意 \(T>0\)，当 \(\varepsilon\to0^+\) 时，\(x_\varepsilon\) 在 \([0,T]\) 上一致收敛于 \(X\)。并问：当 $a,b$ 满足什么条件时，\(x_\varepsilon'\) 也在 \([0,T]\) 上一致收敛于 \(X'\)？
+\end{itemize}
+
+提示：本题将二阶方程看成关于 $(x(t),x'(t))$ 的一阶线性方程组，注意 $x_\eps(t)$ 可以显式求解。
+\end{problem}
+
+\begin{problem}[2016期末第3题]
+研究方程组 $x'=y,\ y'=-y^2-\sin x$ 的平衡点 $(0,0)$ 和 $(\pi,0)$ 的稳定性。（提示：对后者，可能考虑令 $v=y^2$ 去计算 $v$ 关于 $x$ 的方程比较方便。）
+\end{problem}
+
+\begin{problem}[2024管院期末第5题]
+讨论平面系统 $\dot{x}=-2(y^{3}+x^{5}),~\dot{y}=x-y^3$ 零解的稳定性. （提示：构造 Lyapunov 函数时 $x,y$ 的幂次不相等）
+\end{problem}
+
+\begin{problem}[2025期末第5题]
+讨论方程组 $x'=-(x+y)$, $y'=x(1-z)-y$, $z'=xy-\beta z$ 零解的 Lyapunov 正向稳定性，其中常数 $\beta\geqslant 0$.
+\end{problem}
+\end{document}
