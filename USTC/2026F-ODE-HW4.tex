@@ -286,7 +286,7 @@
 \end{problem}
 
 \begin{problem}[习题4.1.2]
-设 $x,t$ 均为标量，$a$为连续函数，求方程 $x'(t)=a(t)x(t) $ 的零解稳定及渐近稳定的充要条件。
+设 $x,t$ 均为标量，$a$为连续函数，求方程 $x'(t)=a(t)x(t)$ 的零解稳定及渐近稳定的充要条件。本题默认从 $t=0$ 开始进行时间正向演化。
 \end{problem}
 
 \begin{problem}[习题4.2.1] 
@@ -299,7 +299,7 @@
 
 
 \begin{problem}[习题4.2.3，2025期末第4题]
-求 $x'(t)=2y(t), y'(t)=x(t)-x(t)^2-y(t)$ 的所有平衡点，并判断其稳定性，作出平衡点附近的相图草图。
+求 $x'(t)=2y(t), y'(t)=x(t)-x(t)^2-y(t)$ 的所有平衡点，并判断其稳定性，作出\textbf{平衡点附近的}相图草图。
 \end{problem}
 
 
@@ -307,8 +307,9 @@
 设 $g\in C^1(\R)$, 且 $x\neq 0$ 时 $xg(x)>0$. 
 \begin{itemize}
 \item [(1)] 证明: 方程 $x''(t)+g(x(t))=0$ 的零解是稳定但不渐近稳定的。
-\item [(2)] 设再有 $g'(0)>0$. 今对 $\eps\in(0,1)$ 考虑\(\varepsilon x''(t)+x'(t)+g(x(t))=0.\) 证明：对任意固定的 $\eps\in(0,1)$，该系统的零解是渐近稳定的。
-\item [(3)] 取 \(g(x)=x\)。对 \(0<\varepsilon<\frac14\)，设 \(x_\varepsilon(t)\) 是初值问题 \(\varepsilon x_\varepsilon''+x_\varepsilon'+x_\varepsilon=0,~x_\varepsilon(0)=a,~ x_\varepsilon'(0)=b\)
+\item [(2)] 设再有 $g'(0)>0$。今对 $\eps\in(0,1)$ 考虑\(\varepsilon x''(t)+x'(t)+g(x(t))=0.\) 证明：对任意固定的 $\eps\in(0,1)$，该系统的零解是渐近稳定的。
+\item [(3)] 若去掉 (2) 中的 $g'(0)>0$，则 (2) 的结论是否还成立？证明你的结论。
+\item [(4)] 取 \(g(x)=x\)。对 \(0<\varepsilon<\frac14\)，设 \(x_\varepsilon(t)\) 是初值问题 \(\varepsilon x_\varepsilon''+x_\varepsilon'+x_\varepsilon=0,~x_\varepsilon(0)=a,~ x_\varepsilon'(0)=b\)
 的解，其中 \(a,b\) 与 \(\varepsilon\) 无关。又设 \(X(t)\) 满足 $X'+X=0,~ X(0)=a.$ 证明：对任意 \(T>0\)，当 \(\varepsilon\to0^+\) 时，\(x_\varepsilon\) 在 \([0,T]\) 上一致收敛于 \(X\)。并问：当 $a,b$ 满足什么条件时，\(x_\varepsilon'\) 也在 \([0,T]\) 上一致收敛于 \(X'\)？
 \end{itemize}
 
@@ -316,7 +317,7 @@
 \end{problem}
 
 \begin{problem}[2016期末第3题]
-研究方程组 $x'=y,\ y'=-y^2-\sin x$ 的平衡点 $(0,0)$ 和 $(\pi,0)$ 的稳定性。（提示：对后者，可能考虑令 $v=y^2$ 去计算 $v$ 关于 $x$ 的方程比较方便。）
+研究方程组 $x'=y,\ y'=-y^2-\sin x$ 的平衡点 $(0,0)$ 和 $(\pi,0)$ 的稳定性。（提示：对前者，有一种可能比较方便的证法：令 $v=y^2$，然后去计算 $v$ 关于 $x$ 的方程。）
 \end{problem}
 
 \begin{problem}[2024管院期末第5题]
@@ -324,6 +325,6 @@
 \end{problem}
 
 \begin{problem}[2025期末第5题]
-讨论方程组 $x'=-(x+y)$, $y'=x(1-z)-y$, $z'=xy-\beta z$ 零解的 Lyapunov 正向稳定性，其中常数 $\beta\geqslant 0$.
+讨论方程组 $x'=-(x+y)$, $y'=x(1-z)-y$, $z'=xy-\beta z$ 零解的 Lyapunov 正向稳定性以及渐近稳定性，其中常数 $\beta\geqslant 0$.
 \end{problem}
 \end{document}
